@@ -1,20 +1,19 @@
 from django.contrib import admin
-from .models import Items, Category, Identity
+from .models import Catalog, CatalogItems
 
 # Register your models here.
-@admin.register(Items)
-class ItemAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'amount')
-    list_filter = ('title', 'description', )
-    list_per_page = 2
+# @admin.register(Items)
+# class ItemAdmin(admin.ModelAdmin):
+#     list_display = ('title', 'description', 'amount')
+#     list_filter = ('title', 'description', )
+#     list_per_page = 2
 
-@admin.register(Category)
-class IteamCategory(admin.ModelAdmin):
-    pass
+@admin.register(Catalog)
+class CatalogAdmin(admin.ModelAdmin):
+    list_display = ('catalog_title', 'catalog_icon')
 
-@admin.register(Identity)
-class IdentityAdmin(admin.ModelAdmin):
+@admin.register(CatalogItems)
+class CatalogItemsAdmin(admin.ModelAdmin):
     pass
-# admin.site.register(Items, ItemAdmin)
 
 
