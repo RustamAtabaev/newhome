@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 mypy = "==0.670"
+autopep8 = "*"
 
 [packages]
 django = "==2.1.7"

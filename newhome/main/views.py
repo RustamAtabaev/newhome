@@ -1,12 +1,12 @@
 from django.shortcuts import render
-# from .models import Category
+from django.views import generic
+from .models import Catalog, CatalogItems
 
 # Create your views here.
 
 
-# def index(request):
-    # base_items = Items.objects.all()
-    # base_category = Category.objects.all()
-    # base_identity = Identity.objects.all()
+def index(request):
+        catalog_category = Catalog.objects.all()
+        catalog_category_items = CatalogItems.objects.all()
 
-    # return render(request, 'index.html', context={'items':base_items, 'category':base_category, 'identity':base_identity})
+        return render(request, 'base.html', context={'catalog_category': catalog_category, 'catalog_category_items': catalog_category_items})
