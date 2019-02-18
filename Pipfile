@@ -10,6 +10,9 @@ autopep8 = "*"
 [packages]
 django = "==2.1.7"
 django-suit = "==0.2.26"
+mysql-server = "*"
+mysql-client = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.6"

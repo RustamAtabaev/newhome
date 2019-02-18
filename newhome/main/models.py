@@ -37,3 +37,14 @@ class CatalogItems(models.Model):
     
     def __str__(self):
         return self.item_title
+
+class SliderA(models.Model):
+    class Meta:
+        verbose_name = u"Слайдер"
+        verbose_name_plural = u"Слайдер"
+    slider_title_needed = models.BooleanField(u"Нужна ли подпись к слайду?")
+    slider_title = models.CharField(max_length=200, help_text="Заголовок акции")
+    slider_img_path = models.ImageField()
+    
+    def __str__(self):
+        return self.slider_title
