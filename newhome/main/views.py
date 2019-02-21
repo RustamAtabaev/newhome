@@ -12,4 +12,10 @@ def index(request):
 
 
 
-        return render(request, 'base.html', context={'catalog_category': catalog_category, 'catalog_category_items': catalog_category_items, 'sliderA': sliderA})
+        return render(request, 'base.html', context={
+                'catalog_category': catalog_category, 
+                'catalog_category_items': catalog_category_items, 
+                'sliderA': sliderA
+                
+                
+                })
