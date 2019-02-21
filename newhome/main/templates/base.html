@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load menu %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -112,14 +112,13 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="{{ i.catalog_icon }}"></i> {{ i.catalog_title }}
                             </button>
-                            <div class="dropdown-menu">
-                                {% for k in catalog_category_items %}
-                                    {% if k.catalog.catalog_title == i.catalog_title %}
+                            {% hello i as res %}
+                            <div class="dropdown-menu {% if not res %} d-none {% endif %}">
+                                {% for k in res %}
                                         <a href="#" class="dropdown-item">{{ k.item_title }}</a>
-                                    {% endif %}
                                 {% endfor %}
                             </div>
-                        </div>
+                        </div>   
                         {% endfor %}
                     </nav>
                 </div>

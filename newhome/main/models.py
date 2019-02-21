@@ -31,7 +31,7 @@ class CatalogItems(models.Model):
     class Meta:
         verbose_name = u"ПодКатегории"
         verbose_name_plural = u"ПодКатегории"
-    catalog = models.ForeignKey(Catalog, on_delete=models.SET_NULL, null=True)
+    catalog_same = models.ForeignKey(Catalog, on_delete=models.SET_NULL, null=True)
     item_title = models.CharField(max_length=200, help_text="Название подкатегории")
     item_title.verbose_name = u"Название подкатегории"
     
