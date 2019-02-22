@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load menu %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,18 +125,20 @@
                         {% endfor %}
                     </nav>
                 </div>
-                
+
                 <div class="col-md-9">
                     <div id="carouselExampleIndicators" class="carousel slide slider-height" data-ride="carousel">
                         <ol class="carousel-indicators">
                             {% for i in sliderA %}
-                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ i.id }}" class="{% if i.id == 1 %}active{% endif %}"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ i.id }}"
+                                class="{% if i.id == 1 %}active{% endif %}"></li>
                             {% endfor %}
                         </ol>
                         <div class="carousel-inner slider-wrapper">
                             {% for i in sliderA %}
                             <div class="carousel-item {% if i.id == 1 %}active slider{% endif %}">
-                                <img class="d-block w-100 img-size" src="{{ MEDIA_URL }}{{ i.slider_img_path }}" alt="{{ i.slider_title }}">
+                                <img class="d-block w-100 img-size" src="{{ MEDIA_URL }}{{ i.slider_img_path }}"
+                                    alt="{{ i.slider_title }}">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h3>{{ i.slider_title }}</h3>
                                 </div>
@@ -182,13 +185,14 @@
                 <div id="foto-indicator" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         {% for i in foto %}
-                        <li data-target="#foto-indicator" data-slide-to="{{ i.id }}" class="{% if i.id == 1 %}active{% endif %}"></li>
+                        <li data-target="#foto-indicator" data-slide-to="{{ i.id }}"
+                            class="{% if i.id == 1 %}active{% endif %}"></li>
                         {% endfor %}
                     </ol>
                     <div class="carousel-inner slider-wrapper">
                         {% for i in foto %}
                         <div class="carousel-item {% if i.id == 1 %}active{% endif %}">
-                            <div class="row">      
+                            <div class="row">
                                 <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
                                         src="{{ MEDIA_URL }}{{ i.foto_img1 }}" alt="Первый слайд"></div>
                                 <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
@@ -218,16 +222,11 @@
 
     <div class="container-fluid map">
         <div class="row map-size">
-            <div class="col-6 map-text">Пр-кт Московский 74/1:
-            </div>
-            <div class="col-6 map-text">Ул. Петруся-Бровки 22:</div>
-            <div class="col-6">
-                <iframe src="https://yandex.by/map-widget/v1/-/COU~7mB"
-                    style="min-height: 400px; width: 100%; height: 100%; border: 0" allowfullscreen="true"></iframe>
-            </div>
-            <div class="col-6">
-                <iframe src="https://yandex.by/map-widget/v1/-/COaUrrT"
-                    style="min-height: 400px; width: 100%; height: 100%; border: 0" allowfullscreen="true"></iframe>
+            <div class="col-12">
+                <iframe
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A6466cd0c00b3e5f9d6b3a5f3c188ef69a3b53d1595f7e3aeaf6998c431d935fc&amp;source=constructor"
+                    style="min-height: 400px; width: 100%; height: 100%; border: 0" allowfullscreen="true">
+                </iframe>
             </div>
         </div>
     </div>
@@ -235,30 +234,12 @@
     <div class="container-fluid bg-warning text-light aditional">
         <div class="row">
             <div class="col-12 centered description">Весной обычно покупают:</div>
+            {% for i in recomend %}
             <div class="col-2 img-add-container">
-                <img class="img-fluid img-add-size rounded-circle" src="img/hot/1.jpg" alt="hot">
-                <p class="centered h5">Сайдинг</p>
+                <img class="img-fluid img-add-size rounded-circle" src="{{ MEDIA_URL }}{{ i.recomend_img }}" alt="hot">
+                <p class="centered h5">{{ i.recomend_title }}</p>
             </div>
-            <div class="col-2 img-add-container">
-                <img class="img-fluid img-add-size rounded-circle" src="img/hot/2.jpg" alt="hot">
-                <p class="centered h5">ПВХ-панели</p>
-            </div>
-            <div class="col-2 img-add-container">
-                <img class="img-fluid img-add-size rounded-circle" src="img/hot/3.jpg" alt="hot">
-                <p class="centered h5">Акриловые краски</p>
-            </div>
-            <div class="col-2 img-add-container">
-                <img class="img-fluid img-add-size rounded-circle" src="img/hot/4.jpg" alt="hot">
-                <p class="centered h5">Гипсокартон</p>
-            </div>
-            <div class="col-2 img-add-container">
-                <img class="img-fluid img-add-size rounded-circle" src="img/hot/5.jpg" alt="hot">
-                <p class="centered h5">Грунтовка</p>
-            </div>
-            <div class="col-2 img-add-container">
-                <img class="img-fluid img-add-size rounded-circle" src="img/hot/6.jpg" alt="hot">
-                <p class="centered h5">Цемент</p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Catalog, CatalogItems, SliderA, News, Foto
+from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend
 
 # Create your views here.
 
@@ -11,6 +11,7 @@ def index(request):
         sliderA = SliderA.objects.all()
         news = News.objects.all()
         foto = Foto.objects.all()
+        recomend = Recomend.objects.all()
 
 
 
@@ -20,4 +21,5 @@ def index(request):
                 'sliderA': sliderA,
                 'news': news,
                 'foto': foto,
+                'recomend': recomend
                 })

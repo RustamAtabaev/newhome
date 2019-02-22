@@ -59,3 +59,13 @@ class Foto(models.Model):
 
     def __str__(self):
         return self.foto_title
+
+class Recomend(models.Model):
+    class Meta:
+        verbose_name = u"Рекомендации"
+        verbose_name_plural = u"Рекомендации"
+    recomend_title = models.CharField(max_length=200, help_text="Заголовок", default='def')
+    recomend_img = models.ImageField(upload_to = "main/img/recomend/", help_text="картинка рекомендаций", default='def')
+
+    def __str__(self):
+        return self.recomend_title
