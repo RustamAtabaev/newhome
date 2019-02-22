@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load menu %}
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     {% load static %}
+
     <link rel="stylesheet" href="{% static 'main/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/all.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
@@ -135,9 +135,9 @@
                         <div class="carousel-inner slider-wrapper">
                             {% for i in sliderA %}
                             <div class="carousel-item {% if i.id == 1 %}active slider{% endif %}">
-                                <img class="d-block w-100" src="{% static 'main/img/discount/' %}{{ i.slider_img_path }}" alt="{{ i.slide_title }}">
+                                <img class="d-block w-100 img-size" src="{{ MEDIA_URL }}{{ i.slider_img_path }}" alt="{{ i.slider_title }}">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h3>{{ i.slide_title }}</h3>
+                                    <h3>{{ i.slider_title }}</h3>
                                 </div>
                             </div>
                             {% endfor %}
@@ -164,7 +164,7 @@
         <div class="card-deck">
             {% for i in news %}
             <div class="card">
-                <img class="card-img-top img-size" src="{% static '/main/' %}{{ i.news_img }}" alt="{{ i.news_title }}">
+                <img class="card-img-top img-size" src="{{ MEDIA_URL }}{{ i.news_img }}" alt="{{ i.news_title }}">
                 <div class="card-body">
                     <p class="card-text">{{ i.news_title }}</p>
                 </div>
@@ -181,30 +181,23 @@
             <div class="col-12">
                 <div id="foto-indicator" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#foto-indicator" data-slide-to="0" class="active"></li>
-                        <li data-target="#foto-indicator" data-slide-to="1"></li>
+                        {% for i in foto %}
+                        <li data-target="#foto-indicator" data-slide-to="{{ i.id }}" class="{% if i.id == 1 %}active{% endif %}"></li>
+                        {% endfor %}
                     </ol>
                     <div class="carousel-inner slider-wrapper">
-                        <div class="carousel-item active">
-                            <div class="row">
+                        {% for i in foto %}
+                        <div class="carousel-item {% if i.id == 1 %}active{% endif %}">
+                            <div class="row">      
                                 <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
-                                        src="img/foto/1.jpg" alt="Первый слайд"></div>
+                                        src="{{ MEDIA_URL }}{{ i.foto_img1 }}" alt="Первый слайд"></div>
                                 <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
-                                        src="img/foto/2.jpg" alt="Первый слайд"></div>
+                                        src="{{ MEDIA_URL }}{{ i.foto_img2 }}" alt="Первый слайд"></div>
                                 <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
-                                        src="img/foto/3.jpg" alt="Первый слайд"></div>
+                                        src="{{ MEDIA_URL }}{{ i.foto_img3 }}" alt="Первый слайд"></div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-4"><img class="d-block w-100 foto-img-item" src="img/foto/4.jpg"
-                                        alt="Второй слайд"></div>
-                                <div class="col-4"><img class="d-block w-100 foto-img-item" src="img/foto/5.jpg"
-                                        alt="Второй слайд"></div>
-                                <div class="col-4"><img class="d-block w-100 foto-img-item" src="img/foto/6.jpg"
-                                        alt="Второй слайд"></div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <a class="carousel-control-prev" href="#foto-indicator" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
