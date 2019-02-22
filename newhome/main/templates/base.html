@@ -162,52 +162,17 @@
 
     <div class="info">
         <div class="card-deck">
+            {% for i in news %}
             <div class="card">
-                <img class="card-img-top img-size" src="{% static 'main/img/news/delivery.gif' %}" alt="Card image cap">
+                <img class="card-img-top img-size" src="{% static '/main/' %}{{ i.news_img }}" alt="{{ i.news_title }}">
                 <div class="card-body">
-                    <p class="card-text">Доставка</p>
+                    <p class="card-text">{{ i.news_title }}</p>
                 </div>
                 <div class="card-footer">
                     <a href="#" class="btn btn-primary">Узнать подробнее</a>
                 </div>
             </div>
-            <div class="card">
-                <img class="card-img-top img-size" src="img/news/coler.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Колеровка, краска в Витебске</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Узнать подробнее</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top img-size" src="img/news/credit.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Условия рассрочки</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Узнать подробнее</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top img-size" src="img/news/invalid.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Скидка инвалидам и ветеранам ВОВ 30%</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Узнать подробнее</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top img-size" src="img/news/discount.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Скидка новоселам 5%</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Узнать подробнее</a>
-                </div>
-            </div>
-
+            {% endfor %}
         </div>
     </div>
 

@@ -1,5 +1,4 @@
 from django.db import models
-from django.forms import forms
 
 # Create your models here.
 
@@ -36,3 +35,15 @@ class SliderA(models.Model):
     
     def __str__(self):
         return self.slider_title
+
+class News(models.Model):
+    class Meta:
+        verbose_name = u"Новостные акуции"
+        verbose_name_plural = u"Новостные акции"
+    news_img = models.ImageField(upload_to = "img/news/", help_text="Изображения новости", default='def')
+    news_title = models.CharField(max_length=200, help_text="Заголовок новости")
+    news_description = models.TextField(max_length=400)
+    news_text = models.TextField()
+    
+    def __str__(self):
+        return self.news_title

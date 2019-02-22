@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Catalog, CatalogItems, SliderA
+from .models import Catalog, CatalogItems, SliderA, News
 
 # Register your models here.
 # @admin.register(Items)
@@ -18,5 +18,10 @@ class CatalogItemsAdmin(admin.ModelAdmin):
 
 @admin.register(SliderA)
 class SliderAAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(News)
+class NewsAAdmin(admin.ModelAdmin):
+    
     pass
 
