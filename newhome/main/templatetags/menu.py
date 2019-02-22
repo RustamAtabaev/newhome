@@ -14,6 +14,6 @@ def test_menu():
   return {'widgets': widgets} # Возвращаем контекст
 
 @register.simple_tag
-def hello(value):
+def database_filter(value):
   res = CatalogItems.objects.filter(catalog_same__catalog_title=value.catalog_title)
   return res
