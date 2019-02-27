@@ -56,7 +56,6 @@ class Foto(models.Model):
     foto_img1 = models.ImageField(upload_to = "main/img/foto/", help_text="1-ая", default='def')
     foto_img2 = models.ImageField(upload_to = "main/img/foto/", help_text="2-ая", default='def')
     foto_img3 = models.ImageField(upload_to = "main/img/foto/", help_text="3-я", default='def')
-
     def __str__(self):
         return self.foto_title
 
