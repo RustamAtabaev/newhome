@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend
+from django.db import models
+from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend, MyInlineModel
 
 # Register your models here.
 # @admin.register(Items)
@@ -8,9 +9,9 @@ from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend
 #     list_filter = ('title', 'description', )
 #     list_per_page = 2
 
-@admin.register(Catalog)
-class CatalogAdmin(admin.ModelAdmin):
-    list_display = ('catalog_title', 'catalog_icon')
+# @admin.register(Catalog)
+# class CatalogAdmin(admin.ModelAdmin):
+#     list_display = ('catalog_title', 'catalog_icon')
 
 @admin.register(CatalogItems)
 class CatalogItemsAdmin(admin.ModelAdmin):
@@ -31,3 +32,23 @@ class FotoAdmin(admin.ModelAdmin):
 @admin.register(Recomend)
 class RecomendAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(Catalog)
+class ModelOptions(admin.ModelAdmin):
+    fieldsets = (
+        ('11', {
+            'classes': ('grp-collapse grp-open',),
+            'fields': ('catalog_title',),
+        }),
+        ('Flags', {
+            'classes': ('grp-collapse grp-open',),
+            'fields' : ('catalog_icon',),
+        }),
+    )
+
+
+
+
+
+
+

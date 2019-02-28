@@ -14,6 +14,17 @@ class Catalog(models.Model):
     def __str__(self):
         return self.catalog_title
 
+
+class MyInlineModel(models.Model):
+    mymodel = models.ForeignKey(Catalog, on_delete=models.SET_NULL, null=True)
+    # position field
+    position = models.PositiveSmallIntegerField("Position", null=True)
+    class Meta:
+        ordering = ['position']
+
+    
+
+
 class CatalogItems(models.Model):
     class Meta:
         verbose_name = u"ПодКатегории"
