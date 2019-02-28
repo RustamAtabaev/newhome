@@ -45,6 +45,7 @@ class ModelOptions(admin.ModelAdmin):
             'fields' : ('catalog_icon',),
         }),
     )
+    ordering = ('catalog_title',)
 
 
 
