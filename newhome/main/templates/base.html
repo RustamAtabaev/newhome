@@ -22,23 +22,24 @@
             <div class="col-md-2 centered">
                 <img class="img-fluid main-logo" src="{% static 'main/img/novy_dom_logo.png' %}" alt="logo">
             </div>
-            <div class="col-md-4 mt-2">
+            <div class="col-md-2 mt-2">
                 <div class="row justify-content-center">
-                    <p class="quality-capture">Новый Дом плюс</p>
+                    <p>Новый Дом плюс</p>
                 </div>
                 <div class="row justify-content-center">
-                    <p class="quality-text">Мечты в реальность</p>
+                    <p>Мечты в реальность</p>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 no-padding">
                 <i class="far fa-clock icon-color"></i> График работы:
                 <p>Пн-Пт: <span class="strong">8:30-17:30</span></p>
                 <p>Сб: <span class="strong">9:00-16:00</span></p>
                 <p>Вс: <span class="strong">10:00-15:00</span></p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6 no-padding">
                 <div class="row no-gutters">
-                    <div class="col-md-12"><i class="far fa-building icon-color"></i> Адреса и контакты г.Витебск:</div>
+                    <div class="col-md-12 no-padding"><i class="far fa-building icon-color"></i> Адреса и контакты
+                        г.Витебск:</div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="row no-gutters">
@@ -64,7 +65,71 @@
         </div>
     </div>
     <!-- Горизонтальное меню сайта -->
-    <nav class="navbar navbar-expand-sm navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #272727;">
+        <a class="navbar-brand" href="#">Главная</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">О нас <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Поиск">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">О нас <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav> -->
+
+
+    <!-- <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark">
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
         <div class="collapse navbar-collapse font-weight-bold" id="collapsibleNavId">
@@ -96,12 +161,11 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Поиск товаров">
-
+            <form class="form-inline my-lg-0">
+                <input class="form-control mr-md-2" type="text" placeholder="Поиск товаров">
             </form>
         </div>
-    </nav>
+    </nav> -->
     <!-- Блок категорий и слайдера -->
     {% block content1 %}
     <div id="catalog">
@@ -165,9 +229,9 @@
     {% endblock %}
 
     <!-- Блок акций -->
-    <div class="info">
-        <div class="card-deck">
-            {% for i in news %}
+    <div class="row info">
+        {% for i in news %}
+        <div class="col-sm-12 col-md-4 col-lg-2">
             <div class="card">
                 <img class="card-img-top img-size" src="{{ MEDIA_URL }}{{ i.news_img }}" alt="{{ i.news_title }}">
                 <div class="card-body">
@@ -177,8 +241,8 @@
                     <a href="#" class="btn btn-primary">Узнать подробнее</a>
                 </div>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
     <!-- Блок фотографий -->
     <div class="foto">
@@ -237,7 +301,7 @@
         <div class="row">
             <div class="col-12 centered description">Весной обычно покупают:</div>
             {% for i in recomend %}
-            <div class="col-2 img-add-container">
+            <div class="col-sm-4 col-md-2 img-add-container">
                 <img class="img-fluid img-add-size rounded-circle" src="{{ MEDIA_URL }}{{ i.recomend_img }}" alt="hot">
                 <p class="centered h5">{{ i.recomend_title }}</p>
             </div>
