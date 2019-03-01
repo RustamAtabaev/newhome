@@ -33,6 +33,8 @@ ALLOWED_HOSTS: list = []
 INSTALLED_APPS = [
     'grappelli.dashboard',
     'grappelli',
+    'adminsortable2',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'main',
+    
 ]
 
 MIDDLEWARE = [

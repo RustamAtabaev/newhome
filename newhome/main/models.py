@@ -3,26 +3,18 @@ from django.db import models
 # Create your models here.
 
 class Catalog(models.Model):
-    class Meta:
+    class Meta(object):
         verbose_name = u"Категории"
         verbose_name_plural = u"Категории"
+        ordering = ['catalog_order']
     catalog_title = models.CharField(max_length=200, help_text="Название категории")
     catalog_title.verbose_name = u"Название категории"
     catalog_icon = models.CharField(max_length=200, help_text="Класс иконки. Пример: fas fa-stream")
     catalog_icon.verbose_name = u"Иконка категории"
+    catalog_order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     def __str__(self):
         return self.catalog_title
-
-
-class MyInlineModel(models.Model):
-    mymodel = models.ForeignKey(Catalog, on_delete=models.SET_NULL, null=True)
-    # position field
-    position = models.PositiveSmallIntegerField("Position", null=True)
-    class Meta:
-        ordering = ['position']
-
-    
 
 
 class CatalogItems(models.Model):

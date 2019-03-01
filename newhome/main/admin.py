@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.db import models
-from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend, MyInlineModel
+from adminsortable2.admin import SortableAdminMixin
+from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend
 
 # Register your models here.
 # @admin.register(Items)
@@ -34,18 +35,20 @@ class RecomendAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(Catalog)
-class ModelOptions(admin.ModelAdmin):
-    fieldsets = (
-        ('11', {
-            'classes': ('grp-collapse grp-open',),
-            'fields': ('catalog_title',),
-        }),
-        ('Flags', {
-            'classes': ('grp-collapse grp-open',),
-            'fields' : ('catalog_icon',),
-        }),
-    )
-    ordering = ('catalog_title',)
+class CatalogOptions(SortableAdminMixin, admin.ModelAdmin):
+    list_display = ('catalog_title', 'catalog_icon', 'catalog_order',)
+    # fieldsets = (
+    #     ('11', {
+    #         'classes': ('grp-collapse grp-open',),
+    #         'fields': ('catalog_title',),
+    #     }),
+    #     ('Flags', {
+    #         'classes': ('grp-collapse grp-open',),
+    #         'fields' : ('catalog_icon',),
+    #     }),
+    # )
+    # ordering = ('catalog_title',)
+    pass
 
 
 

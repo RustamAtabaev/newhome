@@ -16,6 +16,7 @@ Django = "==2.1.7"
 Pillow = "*"
 mypy_extensions = "==0.4.1"
 django-grappelli = "*"
+django-admin-sortable2 = "*"
 
 [requires]
 python_version = "3.6"
