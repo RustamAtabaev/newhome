@@ -197,13 +197,13 @@
                         <ol class="carousel-indicators">
                             {% for i in sliderA %}
                             <li data-target="#carouselExampleIndicators" data-slide-to="{{ i.id }}"
-                                class="{% if i.id == 1 %}active{% endif %}"></li>
+                                class="{% if i.id == 0 %}active{% endif %}"></li>
                             {% endfor %}
                         </ol>
                         <div class="carousel-inner slider-wrapper">
                             {% for i in sliderA %}
-                            <div class="carousel-item {% if i.id == 1 %}active slider{% endif %}">
-                                <img class="d-block w-100 img-size" src="{{ MEDIA_URL }}{{ i.slider_img_path }}"
+                            <div class="carousel-item {% if forloop.first %}active slider{% endif %}">
+                                <img class="d-block w-100 img-size" src="{{ MEDIA_URL }}{{ i.slider_img_path.path|cut_ext }}"
                                     alt="{{ i.slider_title }}">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h3>{{ i.slider_title }}</h3>
@@ -234,7 +234,7 @@
         <div class="col-sm-12 col-md-4 col-lg-2">
             <div class="card">
                 <img class="card-img-top img-size" src="{{ MEDIA_URL }}{{ i.news_img }}" alt="{{ i.news_title }}">
-                <div class="card-body">
+                <div class="card-body card-description">
                     <p class="card-text">{{ i.news_title }}</p>
                 </div>
                 <div class="card-footer">

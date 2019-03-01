@@ -265,6 +265,7 @@ a {
   height: 200px;
 }
 
+
 /* Настройка блока рекламы */
 .info {
   min-height: 300px;
@@ -277,6 +278,11 @@ a {
 
 .img-size {
   width: 100%;
+}
+
+.card-description {
+  height: 10em;
+  overflow: hidden;
 }
 
 /* Настройка блока картинок */
