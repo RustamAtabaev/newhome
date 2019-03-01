@@ -59,6 +59,11 @@ body {
   }
 }
 
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 /* Вспомогательные классы */
 p {
   margin: 0;
