@@ -3,6 +3,20 @@ from django_thumbs.fields import ImageThumbsField
 
 # Create your models here.
 
+class HeaderInfo(models.Model):
+    class Meta:
+        verbose_name = u"Редактирование шапки"
+        verbose_name_plural = u"Редактирование шапки"
+    header_info_title = "Время работы"
+    wk_start_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
+    wk_end_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
+    sat_start_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
+    sat_end_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
+    sun_start_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
+    sun_end_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
+
+    def __str__(self):
+        return self.header_info_title
 
 class Catalog(models.Model):
     class Meta(object):

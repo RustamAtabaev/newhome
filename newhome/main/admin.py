@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db import models
 from adminsortable2.admin import SortableAdminMixin
-from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend
+from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend, HeaderInfo
 
 # Register your models here.
 # @admin.register(Items)
@@ -10,10 +10,10 @@ from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend
 #     list_filter = ('title', 'description', )
 #     list_per_page = 2
 
-# @admin.register(Catalog)
-# class CatalogAdmin(admin.ModelAdmin):
-#     list_display = ('catalog_title', 'catalog_icon')
-
+@admin.register(HeaderInfo)
+class HeaderInfoAdmin(admin.ModelAdmin):
+    pass
+    
 @admin.register(CatalogItems)
 class CatalogItemsAdmin(admin.ModelAdmin):
     pass
