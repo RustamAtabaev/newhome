@@ -101,6 +101,71 @@
         </div>
     </nav>
 
+    <!-- <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">О нас <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav> -->
+
+
+    <!-- <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark">
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse font-weight-bold" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Главная<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">О компании</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Каталог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Новинки и акции</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Доставка и оплата</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Сотрудничество</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Полезная информация</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Администрация</a>
+                        <a class="dropdown-item" href="#">Розничные магазины</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-lg-0">
+                <input class="form-control mr-md-2" type="text" placeholder="Поиск товаров">
+            </form>
+        </div>
+    </nav> -->
     <!-- Блок категорий и слайдера -->
     {% block content1 %}
     <div id="catalog">
@@ -132,13 +197,13 @@
                         <ol class="carousel-indicators">
                             {% for i in sliderA %}
                             <li data-target="#carouselExampleIndicators" data-slide-to="{{ i.id }}"
-                                class="{% if i.id == 0 %}active{% endif %}"></li>
+                                class="{% if forloop.first %}active{% endif %}"></li>
                             {% endfor %}
                         </ol>
                         <div class="carousel-inner slider-wrapper">
                             {% for i in sliderA %}
-                            <div class="carousel-item {% if forloop.first %}active slider{% endif %}">
-                                <img class="d-block w-100 img-size" src="{{ MEDIA_URL }}{{ i.slider_img_path.path|cut_ext }}"
+                            <div class="carousel-item {% if forloop.first %}active{% endif %} slider">
+                                <img class="d-block w-100 img-size" src="{{ i.slider_img_path.url|cut_ext }}"
                                     alt="{{ i.slider_title }}">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h3>{{ i.slider_title }}</h3>
@@ -168,7 +233,7 @@
         {% for i in news %}
         <div class="col-sm-12 col-md-4 col-lg-2">
             <div class="card">
-                <img class="card-img-top img-size" src="{{ MEDIA_URL }}{{ i.news_img }}" alt="{{ i.news_title }}">
+                <img class="card-img-top img-size" src="{{ i.news_img.url|cut_ext }}" alt="{{ i.news_title }}">
                 <div class="card-body card-description">
                     <p class="card-text">{{ i.news_title }}</p>
                 </div>
@@ -187,19 +252,19 @@
                     <ol class="carousel-indicators">
                         {% for i in foto %}
                         <li data-target="#foto-indicator" data-slide-to="{{ i.id }}"
-                            class="{% if i.id == 1 %}active{% endif %}"></li>
+                            class="{% if forloop.first %}active{% endif %}"></li>
                         {% endfor %}
                     </ol>
                     <div class="carousel-inner slider-wrapper">
                         {% for i in foto %}
-                        <div class="carousel-item {% if i.id == 1 %}active{% endif %}">
+                        <div class="carousel-item {% if forloop.first %}active{% endif %} slider">
                             <div class="row">
                                 <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
-                                        src="{{ MEDIA_URL }}{{ i.foto_img1 }}" alt="Первый слайд"></div>
+                                        src="{{ i.foto_img1.url|cut_ext }}" alt="Первый слайд"></div>
                                 <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
-                                        src="{{ MEDIA_URL }}{{ i.foto_img2 }}" alt="Первый слайд"></div>
+                                        src="{{ i.foto_img2.url|cut_ext }}" alt="Первый слайд"></div>
                                 <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
-                                        src="{{ MEDIA_URL }}{{ i.foto_img3 }}" alt="Первый слайд"></div>
+                                        src="{{ i.foto_img3.url|cut_ext }}" alt="Первый слайд"></div>
                             </div>
                         </div>
                         {% endfor %}
@@ -237,7 +302,7 @@
             <div class="col-12 centered description">Весной обычно покупают:</div>
             {% for i in recomend %}
             <div class="col-sm-4 col-md-2 img-add-container">
-                <img class="img-fluid img-add-size rounded-circle" src="{{ MEDIA_URL }}{{ i.recomend_img }}" alt="hot">
+                <img class="img-fluid img-add-size rounded-circle" src="{{ i.recomend_img.url|cut_ext }}" alt="hot">
                 <p class="centered h5">{{ i.recomend_title }}</p>
             </div>
             {% endfor %}

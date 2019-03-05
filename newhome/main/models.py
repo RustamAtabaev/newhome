@@ -39,7 +39,7 @@ class CatalogItems(models.Model):
 class SliderA(models.Model):
 
     SIZES = (
-        {'code': 'resized', 'wxh': '800x600', 'resize': 'crop'},
+        {'code': 'resized', 'wxh': '800x400', 'resize': 'crop'},
     )
 
     class Meta:
@@ -48,18 +48,23 @@ class SliderA(models.Model):
     slider_title_needed = models.BooleanField(u"Нужна ли подпись к слайду?")
     slider_title = models.CharField(
         max_length=200, help_text="Заголовок акции")
-    slider_img_path = ImageThumbsField(upload_to="main/img/slider/", sizes=SIZES)
+    slider_img_path = ImageThumbsField(
+        upload_to="main/img/slider/", sizes=SIZES)
 
     def __str__(self):
         return self.slider_title
 
 
 class News(models.Model):
+    SIZES = (
+        {'code': 'resized', 'wxh': '800x600', 'resize': 'crop'},
+    )
+
     class Meta:
         verbose_name = u"Новостные акуции"
         verbose_name_plural = u"Новостные акции"
-    news_img = models.ImageField(
-        upload_to="main/img/news/", help_text="Изображения новости", default='def')
+    news_img = ImageThumbsField(
+        upload_to="main/img/news/", help_text="Изображения новости", default='def', sizes=SIZES)
     news_title = models.CharField(
         max_length=200, help_text="Заголовок новости")
     news_description = models.TextField(max_length=400)
@@ -70,30 +75,38 @@ class News(models.Model):
 
 
 class Foto(models.Model):
+    SIZES = (
+        {'code': 'resized', 'wxh': '800x400', 'resize': 'crop'},
+    )
+
     class Meta:
         verbose_name = u"Фотографии магазинов"
         verbose_name_plural = u"Фотографии магазинов"
     foto_title = models.CharField(
         max_length=200, help_text="Альтернатива", default='def')
-    foto_img1 = models.ImageField(
-        upload_to="main/img/foto/", help_text="1-ая", default='def')
-    foto_img2 = models.ImageField(
-        upload_to="main/img/foto/", help_text="2-ая", default='def')
-    foto_img3 = models.ImageField(
-        upload_to="main/img/foto/", help_text="3-я", default='def')
+    foto_img1 = ImageThumbsField(
+        upload_to="main/img/foto/", help_text="1-ая", default='def', sizes=SIZES)
+    foto_img2 = ImageThumbsField(
+        upload_to="main/img/foto/", help_text="2-ая", default='def', sizes=SIZES)
+    foto_img3 = ImageThumbsField(
+        upload_to="main/img/foto/", help_text="3-я", default='def', sizes=SIZES)
 
     def __str__(self):
         return self.foto_title
 
 
 class Recomend(models.Model):
+
+    SIZES = (
+        {'code': 'resized', 'wxh': '400x400', 'resize': 'crop'},
+    )
     class Meta:
         verbose_name = u"Рекомендации"
         verbose_name_plural = u"Рекомендации"
     recomend_title = models.CharField(
         max_length=200, help_text="Заголовок", default='def')
-    recomend_img = models.ImageField(
-        upload_to="main/img/recomend/", help_text="картинка рекомендаций", default='def')
+    recomend_img = ImageThumbsField(
+        upload_to="main/img/recomend/", help_text="картинка рекомендаций", default='def', sizes=SIZES)
 
     def __str__(self):
         return self.recomend_title
