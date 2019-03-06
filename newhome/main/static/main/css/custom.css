@@ -246,10 +246,6 @@ a {
   max-height: 28em;
 }
 
-.slider {
-  border: 5px double grey;
-}
-
 .slider-height {
   height: 100%;
 }
