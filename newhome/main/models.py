@@ -3,20 +3,59 @@ from django_thumbs.fields import ImageThumbsField
 
 # Create your models here.
 
-class HeaderInfo(models.Model):
+
+class WorkingTime(models.Model):
     class Meta:
-        verbose_name = u"Редактирование шапки"
-        verbose_name_plural = u"Редактирование шапки"
+        verbose_name = u"Время работы"
+        verbose_name_plural = u"Время работы"
     header_info_title = "Время работы"
-    wk_start_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
-    wk_end_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
-    sat_start_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
-    sat_end_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
-    sun_start_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
-    sun_end_week = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
+    week_header = "Время работы по будням"
+    sat_header = "Время работы по субботам"
+    sun_header = "Время работы по воскресеньям"
+    wk_start_week = models.TimeField(
+        verbose_name='Время начала рабочего дня:', auto_now=False, auto_now_add=False, blank=True)
+    wk_end_week = models.TimeField(
+        verbose_name='Время завершения рабочего дня:', auto_now=False, auto_now_add=False, blank=True)
+    sat_start_week = models.TimeField(
+        verbose_name='Время начала рабочего дня:', auto_now=False, auto_now_add=False, blank=True)
+    sat_end_week = models.TimeField(
+        verbose_name='Время завершения рабочего дня:', auto_now=False, auto_now_add=False, blank=True)
+    sun_start_week = models.TimeField(
+        verbose_name='Время начала рабочего дня:', auto_now=False, auto_now_add=False, blank=True)
+    sun_end_week = models.TimeField(
+        verbose_name='Время завершения рабочего дня:', auto_now=False, auto_now_add=False, blank=True)
 
     def __str__(self):
         return self.header_info_title
+
+
+class Adress(models.Model):
+    class Meta:
+        verbose_name = u"Адреса магазинов"
+        verbose_name_plural = u"Адреса магазинов"
+    header_info_adress = "Адреса магазинов"
+    first_header = "Первый адрес"
+    second_header = "Второй адрес"
+    common_header = models.CharField(
+        verbose_name='Общий заголовок:', max_length=200,)
+    
+    first_adress_header = models.CharField(
+        verbose_name='Первый адрес:', max_length=200,)
+    first_number = models.CharField(
+        verbose_name='Первый номер:', max_length=200,)
+    first_email = models.EmailField(
+        verbose_name='Первый email:', max_length=200,)
+   
+    second_adress_header = models.CharField(
+        verbose_name='Второй адрес:', max_length=200,)
+    second_number = models.CharField(
+        verbose_name='Второй номер:', max_length=200,)
+    second_email = models.EmailField(
+        verbose_name='Второй email:', max_length=200,)
+
+    def __str__(self):
+        return self.header_info_adress
+
 
 class Catalog(models.Model):
     class Meta(object):
@@ -75,7 +114,7 @@ class News(models.Model):
     )
 
     class Meta:
-        verbose_name = u"Новостные акуции"
+        verbose_name = u"Новостные акции"
         verbose_name_plural = u"Новостные акции"
     news_img = ImageThumbsField(
         upload_to="main/img/news/", help_text="Изображения новости", default='def', sizes=SIZES)
@@ -114,6 +153,7 @@ class Recomend(models.Model):
     SIZES = (
         {'code': 'resized', 'wxh': '400x400', 'resize': 'crop'},
     )
+
     class Meta:
         verbose_name = u"Рекомендации"
         verbose_name_plural = u"Рекомендации"

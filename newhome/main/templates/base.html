@@ -32,34 +32,37 @@
             </div>
             <div class="col-md-2 no-padding">
                 <i class="far fa-clock icon-color"></i> График работы:
-                <p>Пн-Пт: <span class="strong">8:30-17:30</span></p>
-                <p>Сб: <span class="strong">9:00-16:00</span></p>
-                <p>Вс: <span class="strong">10:00-15:00</span></p>
+                {% for i in working_time %}
+                <p>Пн-Пт: <span class="strong">{{ i.wk_start_week }}-{{ i.wk_end_week }}</span></p>
+                <p>Сб: <span class="strong">{{ i.sat_start_week }}-{{ i.sat_end_week }}</span></p>
+                <p>Вс: <span class="strong">{{ i.sun_start_week }}-{{ i.sun_end_week }}</span></p>
+                {% endfor %}
             </div>
             <div class="col-md-6 no-padding">
                 <div class="row no-gutters">
-                    <div class="col-md-12 no-padding"><i class="far fa-building icon-color"></i> Адреса и контакты
-                        г.Витебск:</div>
+                    {% for i in adress %}
+                    <div class="col-md-12 no-padding"><i class="far fa-building icon-color"></i>{{ i.common_header }}</div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="row no-gutters">
-                                <div class="col-12 no-gutters">Ул. Петруся-Бровки 22:</div>
+                                <div class="col-12 no-gutters">{{ i.first_adress_header }}</div>
                                 <div class="col-12 phone-number no-gutters"><i class="fas fa-mobile-alt icon-color"></i>
-                                    8 (033) 336-03-03</div>
+                                    {{ i.first_number }}</div>
                                 <div class="col-12 phone-number no-gutters"><i class="far fa-envelope icon-color"></i>
-                                    newhouseplus@mail.ru</div>
+                                    {{ i.first_email }}</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="row no-gutters">
-                                <div class="col-12">Пр-кт Московский 74/1:</div>
+                                <div class="col-12">{{ i.second_adress_header }}</div>
                                 <div class="col-12 phone-number"><i class="fas fa-mobile-alt icon-color"></i> 8 (029)
-                                    20-20-260</div>
+                                    {{ i.second_number }}</div>
                                 <div class="col-12 phone-number no-gutters"><i class="far fa-envelope icon-color"></i>
-                                    newhouseplus@mail.ru</div>
+                                    {{ i.second_email }}</div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

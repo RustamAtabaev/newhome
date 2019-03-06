@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db import models
 from adminsortable2.admin import SortableAdminMixin
-from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend, HeaderInfo
+from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend, WorkingTime, Adress
 
 # Register your models here.
 # @admin.register(Items)
@@ -10,9 +10,44 @@ from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend, Header
 #     list_filter = ('title', 'description', )
 #     list_per_page = 2
 
-@admin.register(HeaderInfo)
-class HeaderInfoAdmin(admin.ModelAdmin):
-    pass
+@admin.register(WorkingTime)
+class WorkingTimeAdmin(admin.ModelAdmin):
+    list_display = ('header_info_title',)
+    fieldsets = (
+        (WorkingTime.week_header, {
+            'fields':[('wk_start_week', 'wk_end_week')]
+        }),
+        (WorkingTime.sat_header, {
+            'fields':[('sat_start_week', 'sat_end_week')]
+        }),
+        (WorkingTime.sun_header, {
+            'fields':[('sun_start_week', 'sun_end_week')]
+        }),
+    )
+    def has_add_permission(self, request):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+@admin.register(Adress)
+class AdressAdmin(admin.ModelAdmin):
+    # list_display = ('header_info_title',)
+    fieldsets = (
+        ('', {
+            'fields':['common_header',]
+        }),
+        (Adress.first_header, {
+            'fields':['first_adress_header', ('first_number', 'first_email')]
+        }),
+        (Adress.second_header, {
+            'fields':['second_adress_header', ('second_number', 'second_email')]
+        }),
+    )
+    def has_add_permission(self, request):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False
+
     
 @admin.register(CatalogItems)
 class CatalogItemsAdmin(admin.ModelAdmin):
@@ -37,18 +72,6 @@ class RecomendAdmin(admin.ModelAdmin):
 @admin.register(Catalog)
 class CatalogOptions(SortableAdminMixin, admin.ModelAdmin):
     list_display = ('catalog_title', 'catalog_icon', 'catalog_order',)
-    # fieldsets = (
-    #     ('11', {
-    #         'classes': ('grp-collapse grp-open',),
-    #         'fields': ('catalog_title',),
-    #     }),
-    #     ('Flags', {
-    #         'classes': ('grp-collapse grp-open',),
-    #         'fields' : ('catalog_icon',),
-    #     }),
-    # )
-    # ordering = ('catalog_title',)
-    pass
 
 
 
