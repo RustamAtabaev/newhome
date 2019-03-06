@@ -259,11 +259,11 @@
                         {% for i in foto %}
                         <div class="carousel-item {% if forloop.first %}active{% endif %} slider">
                             <div class="row">
-                                <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
+                                <div class="col-md-4 col-sm-12 mb-2 img-cutter"><img class="d-block w-100 foto-img-item"
                                         src="{{ i.foto_img1.url|cut_ext }}" alt="Первый слайд"></div>
-                                <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
+                                <div class="col-md-4 col-sm-12 mb-2 img-cutter"><img class="d-block w-100 foto-img-item"
                                         src="{{ i.foto_img2.url|cut_ext }}" alt="Первый слайд"></div>
-                                <div class="col-4 img-cutter"><img class="d-block w-100 foto-img-item"
+                                <div class="col-md-4 col-sm-12 mb-2 img-cutter"><img class="d-block w-100 foto-img-item"
                                         src="{{ i.foto_img3.url|cut_ext }}" alt="Первый слайд"></div>
                             </div>
                         </div>
