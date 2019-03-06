@@ -1,6 +1,12 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Arimo|Raleway");
-
+@font-face {
+  font-family: 'Adventure';
+  src: url(../fonts/Adventure.ttf)  format("truetype"),
+  local('Adventure');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
   background-color: #f2f2f2;
@@ -55,11 +61,12 @@ body {
     font-size: 100%;
   }
   .main-logo {
-    max-width: 60%;
+    width: 150px;
   }
 }
 
 /* Вспомогательные классы */
+
 p {
   margin: 0;
 }
@@ -99,6 +106,17 @@ a {
 
 /* Кастомные классы */
 
+.shop {
+  font-weight: 900;
+}
+
+.slogan {
+  font-family: 'Adventure';
+  font-weight: 800;
+  font-size: 1.5em;
+  text-align: center;
+  color: rgb(255, 24, 24);
+}
 
 .header-blocks {
   display: inline-block;

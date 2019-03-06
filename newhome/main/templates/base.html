@@ -20,14 +20,14 @@
     <div class="container-fluid header-main">
         <div class="row">
             <div class="col-md-2 centered">
-                <img class="img-fluid main-logo" src="{% static 'main/img/novy_dom_logo.png' %}" alt="logo">
+                <img class="main-logo" src="{% static 'main/img/novy_dom_logo.png' %}" alt="logo">
             </div>
-            <div class="col-md-2 mt-2">
+            <div class="col-md-2">
                 <div class="row justify-content-center">
-                    <p>Новый Дом плюс</p>
+                    <p class="shop centered">Магазин стройматериалов</p>
                 </div>
                 <div class="row justify-content-center">
-                    <p>Мечты в реальность</p>
+                    <p class="slogan">Мечты в реальность</p>
                 </div>
             </div>
             <div class="col-md-2 no-padding">
@@ -55,7 +55,7 @@
                         <div class="col-md-6">
                             <div class="row no-gutters">
                                 <div class="col-12">{{ i.second_adress_header }}</div>
-                                <div class="col-12 phone-number"><i class="fas fa-mobile-alt icon-color"></i> 8 (029)
+                                <div class="col-12 phone-number"><i class="fas fa-mobile-alt icon-color"></i>
                                     {{ i.second_number }}</div>
                                 <div class="col-12 phone-number no-gutters"><i class="far fa-envelope icon-color"></i>
                                     {{ i.second_email }}</div>
