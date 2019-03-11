@@ -34,7 +34,7 @@ class CustomIndexDashboard(Dashboard):
             collapsible=True,
             column=1,
             css_classes=('collapse closed',),
-            models=('main.models.WorkingTime', 'main.models.Adress',),
+            models=('main.models.WorkingTime', 'main.models.Adress', 'main.models.Hmenu', 'main.models.HmenuItems',),
         ))
 
         self.children.append(modules.ModelList(

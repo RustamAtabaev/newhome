@@ -69,38 +69,47 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+    <!-- {% for i in catalog_category|dictsort:"catalog_order" %}
+    <div class="btn-group dropright">
+        <button type="button" class="btn dropdown-toggle catalog-item" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="{{ i.catalog_icon }}"></i> {{ i.catalog_title }}
+        </button>
+        {% database_filter i as res %}
+        <div class="dropdown-menu {% if not res %} d-none {% endif %}">
+            {% for k in res %}
+            <a href="#" class="dropdown-item">{{ k.item_title }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %} -->
+
     <!-- Горизонтальное меню сайта -->
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #272727;">
-        <a class="navbar-brand" href="#">Главная</a>
+        <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">О нас <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                {% for i in hmenu|dictsort:"hmenu_order" %}
+                {% hmenu_filter i as res %}
+                <li class="nav-item {% if res %} dropdown {% endif %} {% if forloop.first %}active{% endif %}">
+                    <a class="nav-link {% if res %} dropdown-toggle {% endif %}" {% if res %} id='dropdownId' data-toggle='dropdown'
+                    aria-haspopup='true' aria-expanded='false' {% endif %} href='#'>{{ i.hmenu_title }}</a>
+                    <div class="dropdown-menu myfont {% if not res %} d-none {% endif %}" aria-labelledby="dropdownId">
+                        {% for k in res %}
+                            <a class="dropdown-item" href="#">{{k.item_title}}</a>
+                        {% endfor %}
                     </div>
                 </li>
+                {% endfor %}
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline">
                 <input class="form-control mr-sm-2" type="text" placeholder="Поиск">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
             </form>
@@ -110,16 +119,16 @@
 
     <!-- Блок категорий и слайдера -->
     {% block content1 %}
-    <div id="catalog">
-        <div class="container">
+    <div class="catalog">
+        <div class="container-fluid">
             <div class="row">
                 <!-- Блок категорий -->
                 <div class="col-md-3">
                     <nav class="nav flex-column catalog-menu">
-                        <a class="nav-link catalog-item-first active" href="#">КАТАЛОГ ПРОДУКЦИИ:</a>
+                        <a class="nav-link catalog-item-first active" href="#">Каталог продукции:</a>
                         {% for i in catalog_category|dictsort:"catalog_order" %}
                         <div class="btn-group dropright">
-                            <button type="button" class="btn dropdown-toggle catalog-item" data-toggle="dropdown"
+                            <button type="button" class="btn dropdown-toggle catalog-item myfont" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="{{ i.catalog_icon }}"></i> {{ i.catalog_title }}
                             </button>
@@ -180,7 +189,7 @@
                     <p class="card-text">{{ i.news_title }}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Узнать подробнее</a>
+                    <a href="#" class="btn btn-primary myfont">Узнать подробнее</a>
                 </div>
             </div>
         </div>
@@ -245,7 +254,7 @@
             {% for i in recomend %}
             <div class="col-sm-4 col-md-2 img-add-container">
                 <img class="img-fluid img-add-size rounded-circle" src="{{ i.recomend_img.url|cut_ext }}" alt="hot">
-                <p class="centered h5">{{ i.recomend_title }}</p>
+                <p class="centered">{{ i.recomend_title }}</p>
             </div>
             {% endfor %}
         </div>

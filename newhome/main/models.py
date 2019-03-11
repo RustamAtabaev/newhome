@@ -56,6 +56,32 @@ class Adress(models.Model):
     def __str__(self):
         return self.header_info_adress
 
+class Hmenu(models.Model):
+    class Meta(object):
+        verbose_name = u"Меню"
+        verbose_name_plural = u"Меню"
+        ordering = ['hmenu_order']
+    hmenu_title = models.CharField(
+        max_length=200,)
+    hmenu_title.verbose_name = u"Название пункта меню"
+    hmenu_order = models.PositiveIntegerField(
+        default=0, blank=False, null=False)
+
+    def __str__(self):
+        return self.hmenu_title
+
+class HmenuItems(models.Model):
+    class Meta:
+        verbose_name = u"Пункты меню"
+        verbose_name_plural = u"Пункты меню"
+    hmenu_same = models.ForeignKey(
+        Hmenu, on_delete=models.SET_NULL, null=True)
+    item_title = models.CharField(
+        max_length=200, help_text="Название пункта меню")
+    item_title.verbose_name = u"Название пункта меню"
+
+    def __str__(self):
+        return self.item_title
 
 class Catalog(models.Model):
     class Meta(object):

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db import models
 from adminsortable2.admin import SortableAdminMixin
-from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend, WorkingTime, Adress
+from .models import *
 
 # Register your models here.
 # @admin.register(Items)
@@ -48,7 +48,15 @@ class AdressAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
 
-    
+@admin.register(Hmenu)
+class HmenuAdmin(SortableAdminMixin, admin.ModelAdmin):
+    list_display = ('hmenu_title', 'hmenu_order',)
+
+@admin.register(HmenuItems)
+class HmenuItemsAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(CatalogItems)
 class CatalogItemsAdmin(admin.ModelAdmin):
     pass

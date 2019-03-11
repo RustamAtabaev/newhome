@@ -1,7 +1,7 @@
 from django import template
 
 # Импортируем нужные нам модели.
-from main.models import Catalog, CatalogItems, SliderA
+from main.models import Catalog, CatalogItems, SliderA, HmenuItems
 
 # экземпляр класса, в котором все наши теги будут зарегистрированы
 register = template.Library()
@@ -16,6 +16,11 @@ def database_filter(value):
       catalog_same__catalog_title=value.catalog_title)
   return res
 
+@register.simple_tag
+def hmenu_filter(value):
+  res = HmenuItems.objects.filter(
+      hmenu_same__hmenu_title=value.hmenu_title)
+  return res
 
 @register.filter
 def cut_ext(value: str):

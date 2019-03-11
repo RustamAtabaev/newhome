@@ -19,13 +19,18 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 @media(min-width: 0px) {
-  body {
+  body, dropdown {
     font-size: 1.2em;
     text-align: center;
   }
   .main-logo {
     max-width: 100%;
   }
+
+  .myfont {
+    font-size: 0.8em;
+  }
+
 
 }
 @media(min-width: 576px) {
@@ -35,6 +40,9 @@ body {
   }
   .main-logo {
     max-width: 60%;
+  }
+  .myfont {
+    font-size: 3vw;
   }
 }
 
@@ -46,6 +54,9 @@ body {
   .main-logo {
     max-width: 100%;
   }
+  .myfont {
+    font-size: 1.5vw;
+  }
 }
 
 @media(min-width: 992px) {
@@ -55,6 +66,9 @@ body {
   .main-logo {
     max-width: 100%;
   }
+  .myfont {
+    font-size: 1.5vw;
+  }
 }
 @media(min-width: 1200px) {
   body {
@@ -62,6 +76,9 @@ body {
   }
   .main-logo {
     width: 100%;
+  }
+  .myfont {
+    font-size: 1.5vw;
   }
 }
 
@@ -227,7 +244,7 @@ a {
 }
 
 /* Настройка блока каталога и акций */
-#catalog {
+.catalog {
   background: url(../img/building.jpg);
   min-height: 550px;
   width: 100%;
@@ -293,6 +310,7 @@ a {
   background-attachment: fixed;
   padding-top: 40px;
   padding-bottom: 40px;
+  font-size: inherit;
 }
 
 .img-size {
@@ -337,7 +355,7 @@ a {
 }
 
 .description {
-  font-size: 24px;
+  font-size: 2vw;
   margin: 5px;
 }
 
@@ -347,6 +365,7 @@ a {
 
 .img-add-container {
   padding: 10px;
+  font-size: 1.8vw;
 }
 
 /* Настройка блока подвала */

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Catalog, CatalogItems, SliderA, News, Foto, Recomend, WorkingTime, Adress
+from .models import *
 
 # Create your views here.
 
@@ -14,6 +14,8 @@ def index(request):
         recomend = Recomend.objects.all()
         working_time = WorkingTime.objects.all()
         adress = Adress.objects.all()
+        hmenu = Hmenu.objects.all()[:5]
+        hmenu_items = HmenuItems.objects.all()
 
 
 
@@ -25,5 +27,7 @@ def index(request):
                 'foto': foto,
                 'recomend': recomend,
                 'working_time': working_time,
-                'adress': adress
+                'adress': adress,
+                'hmenu': hmenu,
+                'hmenu_items': hmenu_items,
                 })
