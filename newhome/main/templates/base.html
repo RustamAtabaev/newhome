@@ -70,25 +70,6 @@
         </div>
     </div>
 
-
-
-
-
-    <!-- {% for i in catalog_category|dictsort:"catalog_order" %}
-    <div class="btn-group dropright">
-        <button type="button" class="btn dropdown-toggle catalog-item" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="{{ i.catalog_icon }}"></i> {{ i.catalog_title }}
-        </button>
-        {% database_filter i as res %}
-        <div class="dropdown-menu {% if not res %} d-none {% endif %}">
-            {% for k in res %}
-            <a href="#" class="dropdown-item">{{ k.item_title }}</a>
-            {% endfor %}
-        </div>
-    </div>
-    {% endfor %} -->
-
     <!-- Горизонтальное меню сайта -->
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #272727;">
         <a class="navbar-brand" href="#"></a>
@@ -97,12 +78,12 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 {% for i in hmenu|dictsort:"hmenu_order" %}
-                {% hmenu_filter i as res %}
-                <li class="nav-item {% if res %} dropdown {% endif %} {% if forloop.first %}active{% endif %}">
-                    <a class="nav-link {% if res %} dropdown-toggle {% endif %}" {% if res %} id='dropdownId' data-toggle='dropdown'
+                {% hmenu_filter i as hmenu %}
+                <li class="nav-item {% if hmenu %} dropdown {% endif %} {% if forloop.first %}active{% endif %}">
+                    <a class="nav-link {% if hmenu %} dropdown-toggle {% endif %}" {% if hmenu %} id='dropdownId' data-toggle='dropdown'
                     aria-haspopup='true' aria-expanded='false' {% endif %} href='#'>{{ i.hmenu_title }}</a>
-                    <div class="dropdown-menu myfont {% if not res %} d-none {% endif %}" aria-labelledby="dropdownId">
-                        {% for k in res %}
+                    <div class="dropdown-menu myfont {% if not hmenu %} d-none {% endif %}" aria-labelledby="dropdownId">
+                        {% for k in hmenu %}
                             <a class="dropdown-item" href="#">{{k.item_title}}</a>
                         {% endfor %}
                     </div>
