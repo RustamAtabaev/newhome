@@ -20,7 +20,7 @@ body {
 }
 @media(min-width: 0px) {
   body {
-    font-size: 120%;
+    font-size: 1.2em;
     text-align: center;
   }
   .main-logo {
@@ -30,17 +30,17 @@ body {
 }
 @media(min-width: 576px) {
   body {
-    font-size: 140%;
+    font-size: 3vw;
     text-align: center;
   }
   .main-logo {
-    max-width: 100%;
+    max-width: 60%;
   }
 }
 
 @media(min-width: 768px) {
   body {
-    font-size: 80%;
+    font-size: 1.5vw;
     text-align: left;
   }
   .main-logo {
@@ -50,7 +50,7 @@ body {
 
 @media(min-width: 992px) {
   body {
-    font-size: 90%;
+    font-size:1.5vw;
   }
   .main-logo {
     max-width: 100%;
@@ -58,7 +58,7 @@ body {
 }
 @media(min-width: 1200px) {
   body {
-    font-size: 100%;
+    font-size: 1.5vw;
   }
   .main-logo {
     width: 100%;
