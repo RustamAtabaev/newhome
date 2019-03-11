@@ -190,3 +190,12 @@ class Recomend(models.Model):
 
     def __str__(self):
         return self.recomend_title
+
+
+
+# Ниже идут блоки детального обзора каталога каталога
+
+class DitailMenu(models.Model):
+    class Meta:
+        verbose_name = u"Фотографии магазинов"
+        verbose_name_plural = u"Фотографии магазинов"
