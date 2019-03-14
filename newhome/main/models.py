@@ -197,5 +197,5 @@ class Recomend(models.Model):
 
 class DitailMenu(models.Model):
     class Meta:
-        verbose_name = u"Фотографии магазинов"
+        verbose_name = u""
         verbose_name_plural = u"Фотографии магазинов"
