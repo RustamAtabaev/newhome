@@ -99,10 +99,10 @@
 
 
     <!-- Блок категорий и слайдера -->
-    {% block content1 %}
     <div class="catalog">
         <div class="container-fluid">
             <div class="row">
+                {% block catalog %}
                 <!-- Блок категорий -->
                 <div class="col-md-3">
                     <nav class="nav flex-column catalog-menu">
@@ -155,6 +155,7 @@
                         </a>
                     </div>
                 </div>
+                {% endblock %}
             </div>
         </div>
     </div>
