@@ -118,7 +118,7 @@
                     <nav class="nav flex-column catalog-menu">
                         <a class="nav-link catalog-item-first active" href="#">Каталог продукции:</a>
                         {% for i in catalog_category|dictsort:"catalog_order" %}
-                        <div class="btn-group dropright">
+                        <div class="btn-group {% if forloop.last %} dropup {% else %} dropright {% endif %}">
                             <button type="button" class="btn catalog-item myfont" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="{{ i.catalog_icon }}"></i> {{ i.catalog_title }}
@@ -223,10 +223,7 @@
             </div>
         </div>
     </div>
-    <!-- Блок замера -->
-    <div class="container-fluid zamer">
-        <button type="button" name="" id="" class="btn btn-success btn-lg btn-block">Сделать замер</button>
-    </div>
+
     <!-- Блок карты -->
     <div class="container-fluid map">
         <div class="row map-size">
