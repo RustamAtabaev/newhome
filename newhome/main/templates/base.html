@@ -49,7 +49,11 @@
                             <div class="row no-gutters">
                                 <div class="col-12 no-gutters">{{ i.first_adress_header }}</div>
                                 <div class="col-12 phone-number no-gutters"><i class="fas fa-mobile-alt icon-color"></i>
-                                    {{ i.first_number }}</div>
+                                    {{ i.first_number1 }}</div>
+                                <div class="col-12 phone-number no-gutters"><i class="fas fa-mobile-alt icon-color"></i>
+                                    {{ i.first_number2 }}</div>
+                                <div class="col-12 phone-number no-gutters"><i class="fas fa-mobile-alt icon-color"></i>
+                                    {{ i.first_number3 }}</div>
                                 <div class="col-12 phone-number no-gutters"><i class="far fa-envelope icon-color"></i>
                                     {{ i.first_email }}</div>
                             </div>
@@ -58,7 +62,11 @@
                             <div class="row no-gutters">
                                 <div class="col-12">{{ i.second_adress_header }}</div>
                                 <div class="col-12 phone-number"><i class="fas fa-mobile-alt icon-color"></i>
-                                    {{ i.second_number }}</div>
+                                    {{ i.second_number1 }}</div>
+                                <div class="col-12 phone-number"><i class="fas fa-mobile-alt icon-color"></i>
+                                    {{ i.second_number2 }}</div>
+                                <div class="col-12 phone-number"><i class="fas fa-mobile-alt icon-color"></i>
+                                    {{ i.second_number3 }}</div>
                                 <div class="col-12 phone-number no-gutters"><i class="far fa-envelope icon-color"></i>
                                     {{ i.second_email }}</div>
                             </div>
@@ -80,11 +88,13 @@
                 {% for i in hmenu|dictsort:"hmenu_order" %}
                 {% hmenu_filter i as hmenu %}
                 <li class="nav-item {% if hmenu %} dropdown {% endif %} {% if forloop.first %}active{% endif %}">
-                    <a class="nav-link {% if hmenu %} dropdown-toggle {% endif %}" {% if hmenu %} id='dropdownId' data-toggle='dropdown'
-                    aria-haspopup='true' aria-expanded='false' {% endif %} href='#'>{{ i.hmenu_title }}</a>
-                    <div class="dropdown-menu myfont {% if not hmenu %} d-none {% endif %}" aria-labelledby="dropdownId">
+                    <a class="nav-link {% if hmenu %} dropdown-toggle {% endif %}" {% if hmenu %} id='dropdownId'
+                        data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' {% endif %}
+                        href='#'>{{ i.hmenu_title }}</a>
+                    <div class="dropdown-menu myfont {% if not hmenu %} d-none {% endif %}"
+                        aria-labelledby="dropdownId">
                         {% for k in hmenu %}
-                            <a class="dropdown-item" href="#">{{k.item_title}}</a>
+                        <a class="dropdown-item" href="#">{{k.item_title}}</a>
                         {% endfor %}
                     </div>
                 </li>
@@ -234,7 +244,8 @@
             <div class="col-12 centered description">Весной обычно покупают:</div>
             {% for i in recomend %}
             <div class="col-sm-4 col-md-2 img-add-container">
-                <img class="img-fluid img-add-size rounded-circle centered" src="{{ i.recomend_img.url|cut_ext }}" alt="hot">
+                <img class="img-fluid img-add-size rounded-circle centered" src="{{ i.recomend_img.url|cut_ext }}"
+                    alt="hot">
                 <p class="centered">{{ i.recomend_title }}</p>
             </div>
             {% endfor %}

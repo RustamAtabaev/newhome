@@ -38,23 +38,32 @@ class Adress(models.Model):
     second_header = "Второй адрес"
     common_header = models.CharField(
         verbose_name='Общий заголовок:', max_length=200,)
-    
+
     first_adress_header = models.CharField(
         verbose_name='Первый адрес:', max_length=200,)
-    first_number = models.CharField(
-        verbose_name='Первый номер:', max_length=200,)
+    first_number1 = models.CharField(
+        verbose_name='Номер:', max_length=200, default="")
+    first_number2 = models.CharField(
+        verbose_name='Номер:', max_length=200, default="")
+    first_number3 = models.CharField(
+        verbose_name='Номер:', max_length=200, default="")
     first_email = models.EmailField(
         verbose_name='Первый email:', max_length=200,)
-   
+
     second_adress_header = models.CharField(
         verbose_name='Второй адрес:', max_length=200,)
-    second_number = models.CharField(
-        verbose_name='Второй номер:', max_length=200,)
+    second_number1 = models.CharField(
+        verbose_name='Номер:', max_length=200, default="")
+    second_number2 = models.CharField(
+        verbose_name='Номер:', max_length=200, default="")
+    second_number3 = models.CharField(
+        verbose_name='Номер:', max_length=200, default="")
     second_email = models.EmailField(
         verbose_name='Второй email:', max_length=200,)
 
     def __str__(self):
         return self.header_info_adress
+
 
 class Hmenu(models.Model):
     class Meta(object):
@@ -70,6 +79,7 @@ class Hmenu(models.Model):
     def __str__(self):
         return self.hmenu_title
 
+
 class HmenuItems(models.Model):
     class Meta:
         verbose_name = u"Пункты меню"
@@ -82,6 +92,7 @@ class HmenuItems(models.Model):
 
     def __str__(self):
         return self.item_title
+
 
 class Catalog(models.Model):
     class Meta(object):
@@ -190,7 +201,6 @@ class Recomend(models.Model):
 
     def __str__(self):
         return self.recomend_title
-
 
 
 # Ниже идут блоки детального обзора каталога каталога

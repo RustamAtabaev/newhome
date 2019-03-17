@@ -37,10 +37,10 @@ class AdressAdmin(admin.ModelAdmin):
             'fields':['common_header',]
         }),
         (Adress.first_header, {
-            'fields':['first_adress_header', ('first_number', 'first_email')]
+            'fields':['first_adress_header', 'first_email', ('first_number1', 'first_number2', 'first_number3')]
         }),
         (Adress.second_header, {
-            'fields':['second_adress_header', ('second_number', 'second_email')]
+            'fields':['second_adress_header', 'second_email', ('second_number1', 'second_number2', 'second_number3')]
         }),
     )
     def has_add_permission(self, request):
