@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load menu %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+
+</head>
+
+<body>
+    <!-- Шапка сайта -->
+    <div class="container-fluid header-main">
+        <div class="row">
+            <div class="col-md-4 centered">
+                <img class="main-logo" src="{% static 'main/img/novy_dom_logo.png' %}" alt="logo">
+                <div class="row align-bottom">
+                    <!-- <p class="shop centered">Магазин стройматериалов</p> -->
+                </div>
+                <div class="row justify-content-center">
+                    <p class="slogan">Мечты в реальность</p>
+                </div>
+            </div>
+            <div class="col-md-2 no-padding">
+                <div align-middle>
+                    <i class="far fa-clock icon-color"></i> График работы:
+                    {% for i in working_time %}
+                    <p>Пн-Пт: <span class="strong">{{ i.wk_start_week }}-{{ i.wk_end_week }}</span></p>
+                    <p>Сб: <span class="strong">{{ i.sat_start_week }}-{{ i.sat_end_week }}</span></p>
+                    <p>Вс: <span class="strong">{{ i.sun_start_week }}-{{ i.sun_end_week }}</span></p>
+                </div>
+
+                {% endfor %}
+            </div>
+            <div class="col-md-6 no-padding align-middle">
+                <div class="row no-gutters">
+                    {% for i in adress %}
+                    <div class="col-md-12 no-padding"><i class="far fa-building icon-color"></i>{{ i.common_header }}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row no-gutters">
+                                <div class="col-12 no-gutters">{{ i.first_adress_header }}</div>
+                                <div class="col-12 phone-number no-gutters"><i class="fas fa-mobile-alt icon-color"></i>
+                                    {{ i.first_number }}</div>
+                                <div class="col-12 phone-number no-gutters"><i class="far fa-envelope icon-color"></i>
+                                    {{ i.first_email }}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row no-gutters">
+                                <div class="col-12">{{ i.second_adress_header }}</div>
+                                <div class="col-12 phone-number"><i class="fas fa-mobile-alt icon-color"></i>
+                                    {{ i.second_number }}</div>
+                                <div class="col-12 phone-number no-gutters"><i class="far fa-envelope icon-color"></i>
+                                    {{ i.second_email }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Горизонтальное меню сайта -->
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #272727;">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                {% for i in hmenu|dictsort:"hmenu_order" %}
+                {% hmenu_filter i as hmenu %}
+                <li class="nav-item {% if hmenu %} dropdown {% endif %} {% if forloop.first %}active{% endif %}">
+                    <a class="nav-link {% if hmenu %} dropdown-toggle {% endif %}" {% if hmenu %} id='dropdownId' data-toggle='dropdown'
+                    aria-haspopup='true' aria-expanded='false' {% endif %} href='#'>{{ i.hmenu_title }}</a>
+                    <div class="dropdown-menu myfont {% if not hmenu %} d-none {% endif %}" aria-labelledby="dropdownId">
+                        {% for k in hmenu %}
+                            <a class="dropdown-item" href="#">{{k.item_title}}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="text" placeholder="Поиск">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+            </form>
+        </div>
+    </nav>
+
+
+    <!-- Блок категорий и слайдера -->
+    <div class="catalog">
+        <div class="container-fluid">
+            <div class="row">
+                {% block catalog %}
+                <!-- Блок категорий -->
+                <div class="col-md-3">
+                    <nav class="nav flex-column catalog-menu">
+                        <a class="nav-link catalog-item-first active" href="#">Каталог продукции:</a>
+                        {% for i in catalog_category|dictsort:"catalog_order" %}
+                        <div class="btn-group dropright">
+                            <button type="button" class="btn dropdown-toggle catalog-item myfont" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="{{ i.catalog_icon }}"></i> {{ i.catalog_title }}
+                            </button>
+                            {% database_filter i as res %}
+                            <div class="dropdown-menu {% if not res %} d-none {% endif %}">
+                                {% for k in res %}
+                                <a href="#" class="dropdown-item">{{ k.item_title }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </nav>
+                </div>
+                <!-- Блок слайдера -->
+                <div class="col-md-9">
+                    <div id="carouselExampleIndicators" class="carousel slide slider-height" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            {% for i in sliderA %}
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ i.id }}"
+                                class="{% if forloop.first %}active{% endif %}"></li>
+                            {% endfor %}
+                        </ol>
+                        <div class="carousel-inner slider-wrapper">
+                            {% for i in sliderA %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %} slider">
+                                <img class="d-block w-100 img-size" src="{{ i.slider_img_path.url|cut_ext }}"
+                                    alt="{{ i.slider_title }}">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>{{ i.slider_title }}</h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Блок акций -->
+    <div class="row info">
+        {% for i in news %}
+        <div class="col-sm-12 col-md-4 col-lg-2">
+            <div class="card">
+                <img class="card-img-top img-size" src="{{ i.news_img.url|cut_ext }}" alt="{{ i.news_title }}">
+                <div class="card-body card-description">
+                    <p class="card-text">{{ i.news_title }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary myfont">Узнать подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Блок фотографий -->
+    <div class="foto">
+        <div class="row">
+            <div class="col-12">
+                <div id="foto-indicator" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {% for i in foto %}
+                        <li data-target="#foto-indicator" data-slide-to="{{ i.id }}"
+                            class="{% if forloop.first %}active{% endif %}"></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner slider-wrapper">
+                        {% for i in foto %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %} slider">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 mb-2 img-cutter"><img class="d-block w-100 foto-img-item"
+                                        src="{{ i.foto_img1.url|cut_ext }}" alt="Первый слайд"></div>
+                                <div class="col-md-4 col-sm-12 mb-2 img-cutter"><img class="d-block w-100 foto-img-item"
+                                        src="{{ i.foto_img2.url|cut_ext }}" alt="Первый слайд"></div>
+                                <div class="col-md-4 col-sm-12 mb-2 img-cutter"><img class="d-block w-100 foto-img-item"
+                                        src="{{ i.foto_img3.url|cut_ext }}" alt="Первый слайд"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#foto-indicator" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#foto-indicator" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Блок замера -->
+    <div class="container-fluid zamer">
+        <button type="button" name="" id="" class="btn btn-success btn-lg btn-block">Сделать замер</button>
+    </div>
+    <!-- Блок карты -->
+    <div class="container-fluid map">
+        <div class="row map-size">
+            <div class="col-12">
+                <iframe
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A6466cd0c00b3e5f9d6b3a5f3c188ef69a3b53d1595f7e3aeaf6998c431d935fc&amp;source=constructor"
+                    style="min-height: 400px; width: 100%; height: 100%; border: 0" allowfullscreen="true">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Блок сезонных предложений -->
+    <div class="container-fluid bg-warning text-light aditional">
+        <div class="row">
+            <div class="col-12 centered description">Весной обычно покупают:</div>
+            {% for i in recomend %}
+            <div class="col-sm-4 col-md-2 img-add-container">
+                <img class="img-fluid img-add-size rounded-circle centered" src="{{ i.recomend_img.url|cut_ext }}" alt="hot">
+                <p class="centered">{{ i.recomend_title }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Блок подвала -->
+    <div class="footer bg-dark">
+        <p class="centered text-light">© 2019 "Новый дом плюс"</p>
+    </div>
+
+</body>
+
+<script src="{% static 'main/js/jquery-3.3.1.slim.min.js' %}"></script>
+<script src="{% static 'main/js/popper.min.js' %}"></script>
+<script src="{% static 'main/js/bootstrap.bundle.js' %}"></script>
+
+</html>

@@ -25,13 +25,16 @@ SECRET_KEY = '@gb7ip8+7p&wvbhb230m*-xhe3fuhv4e744us=6ip4z%!3u-_+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS: list = []
+ALLOWED_HOSTS: list = ['94.103.85.154', 'newdom.ml', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'suit',
+    'grappelli.dashboard',
+    'grappelli',
+    'adminsortable2',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'main',
+    'django_thumbs',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -122,3 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR+'/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR+'/media/'
+
+GRAPPELLI_ADMIN_TITLE = "Страница администрирования" # Работает только для английского языка
+GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'

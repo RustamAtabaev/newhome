@@ -1,17 +1,96 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Arimo|Raleway");
+@font-face {
+  font-family: 'Adventure';
+  src: url(../fonts/Adventure.ttf)  format("truetype"),
+  local('Adventure');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background-color: #f2f2f2;
   font-family: "Arimo";
   font-weight: 300;
-  font-size: 16px;
+  font-size: 100%;
+  min-width: 350px;
   color: #555;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
 }
+@media(min-width: 0px) {
+  body, dropdown {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .main-logo {
+    max-width: 100%;
+  }
+
+  .myfont {
+    font-size: 0.8em;
+  }
+
+
+}
+@media(min-width: 576px) {
+  body {
+    font-size: 3vw;
+    text-align: center;
+  }
+  .main-logo {
+    max-width: 60%;
+  }
+  .myfont {
+    font-size: 3vw;
+  }
+}
+
+@media(min-width: 768px) {
+  body {
+    font-size: 1.5vw;
+    text-align: left;
+  }
+  .main-logo {
+    max-width: 100%;
+  }
+  .myfont {
+    font-size: 1.5vw;
+  }
+}
+
+@media(min-width: 992px) {
+  body {
+    font-size:1.5vw;
+  }
+  .main-logo {
+    max-width: 100%;
+  }
+  .myfont {
+    font-size: 1.5vw;
+  }
+}
+@media(min-width: 1200px) {
+  body {
+    font-size: 1.5vw;
+  }
+  .main-logo {
+    width: 100%;
+  }
+  .myfont {
+    font-size: 1.5vw;
+  }
+}
+
+/* Вспомогательные классы */
 
 p {
   margin: 0;
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 a {
@@ -20,11 +99,12 @@ a {
 
 .strong {
   font-weight: 900;
-  font-size: 16px;
+  font-size: 100%;
 }
 
 .centered {
   text-align: center;
+  margin: 0 auto;
 }
 
 .flex {
@@ -37,6 +117,23 @@ a {
 
 .no-padding {
   padding: 0;
+
+}
+
+
+
+/* Кастомные классы */
+
+.shop {
+  font-weight: 900;
+}
+
+.slogan {
+  font-family: 'Adventure';
+  font-weight: 800;
+  font-size: 1.5em;
+  text-align: center;
+  color: rgb(255, 24, 24);
 }
 
 .header-blocks {
@@ -55,10 +152,6 @@ a {
 .phone-number {
   font-weight: 900;
   color: black;
-}
-
-.main-logo {
-  max-width: 60%;
 }
 
 .quality-first {
@@ -133,14 +226,13 @@ a {
 }
 
 .quality-text {
-  font-size: 24px;
+  font-size: 120%;
   font-weight: 900;
   color: #333;
   font-family: "Arimo";
 }
 
 .quality-capture {
-  font-size: 28px;
   font-weight: 900;
   color: #333;
   font-family: "Arimo";
@@ -153,7 +245,7 @@ a {
 }
 
 /* Настройка блока каталога и акций */
-#catalog {
+.catalog {
   background: url(../img/building.jpg);
   min-height: 550px;
   width: 100%;
@@ -190,10 +282,6 @@ a {
   max-height: 28em;
 }
 
-.slider {
-  border: 5px double grey;
-}
-
 .slider-height {
   height: 100%;
 }
@@ -214,6 +302,7 @@ a {
   height: 200px;
 }
 
+
 /* Настройка блока рекламы */
 .info {
   min-height: 300px;
@@ -222,10 +311,16 @@ a {
   background-attachment: fixed;
   padding-top: 40px;
   padding-bottom: 40px;
+  font-size: inherit;
 }
 
 .img-size {
   width: 100%;
+}
+
+.card-description {
+  height: 10em;
+  overflow: hidden;
 }
 
 /* Настройка блока картинок */
@@ -261,7 +356,7 @@ a {
 }
 
 .description {
-  font-size: 24px;
+  font-size: 2vw;
   margin: 5px;
 }
 
@@ -270,7 +365,7 @@ a {
 }
 
 .img-add-container {
-  padding: 10px;
+  font-size: 1.8vw;
 }
 
 /* Настройка блока подвала */
