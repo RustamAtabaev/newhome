@@ -48,37 +48,37 @@ body {
 
 @media(min-width: 768px) {
   body {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     text-align: left;
   }
   .main-logo {
     max-width: 100%;
   }
   .myfont {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
   }
 }
 
 @media(min-width: 992px) {
   body {
-    font-size:1.5vw;
+    font-size:1.2vw;
   }
   .main-logo {
     max-width: 100%;
   }
   .myfont {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
   }
 }
 @media(min-width: 1200px) {
   body {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
   }
   .main-logo {
     width: 100%;
   }
   .myfont {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
   }
 }
 

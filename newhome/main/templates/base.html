@@ -119,7 +119,7 @@
                         <a class="nav-link catalog-item-first active" href="#">Каталог продукции:</a>
                         {% for i in catalog_category|dictsort:"catalog_order" %}
                         <div class="btn-group dropright">
-                            <button type="button" class="btn dropdown-toggle catalog-item myfont" data-toggle="dropdown"
+                            <button type="button" class="btn catalog-item myfont" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="{{ i.catalog_icon }}"></i> {{ i.catalog_title }}
                             </button>
