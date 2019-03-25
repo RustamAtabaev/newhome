@@ -1,5 +1,7 @@
 from django.db import models
 from django_thumbs.fields import ImageThumbsField
+from transliterate import translit, get_available_language_codes, detect_language
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 
@@ -107,6 +109,19 @@ class Catalog(models.Model):
     catalog_icon.verbose_name = u"Иконка категории"
     catalog_order = models.PositiveIntegerField(
         default=0, blank=False, null=False)
+    
+    slug = models.SlugField(default="slug")
+
+    def save(self, *args, **kwargs):					# Переопределяем метод сохранения модели
+        # Создаем временную переменную и заносим в нее наш текст
+        try:
+            temp = translit(self.catalog_title, reversed=True)
+        except:
+            temp = translit(self.catalog_title, 'hy', reversed=True)
+        # Заменяем в полученной строке пробелы на тире
+        self.slug = slugify(temp)
+        # Вызываем базовый метод сохранения с измененными нами данными
+        super(Catalog, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.catalog_title
@@ -117,14 +132,57 @@ class CatalogItems(models.Model):
         verbose_name = u"ПодКатегории"
         verbose_name_plural = u"ПодКатегории"
     catalog_same = models.ForeignKey(
-        Catalog, on_delete=models.SET_NULL, null=True)
+        Catalog, on_delete=models.SET_NULL, null=True, verbose_name = u"Категория")
     item_title = models.CharField(
         max_length=200, help_text="Название подкатегории")
     item_title.verbose_name = u"Название подкатегории"
 
+    slug = models.SlugField(default="slug")
+
+    def save(self, *args, **kwargs):					# Переопределяем метод сохранения модели
+        # Создаем временную переменную и заносим в нее наш текст
+        try:
+            temp = translit(self.item_title, reversed=True)
+        except:
+            temp = translit(self.item_title, 'hy', reversed=True)
+        # Заменяем в полученной строке пробелы на тире
+        self.slug = slugify(temp)
+        # Вызываем базовый метод сохранения с измененными нами данными
+        super(CatalogItems, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.item_title
 
+class Detail_Items(models.Model):
+    class Meta:
+        verbose_name = u"Товарные позиции"
+        verbose_name_plural = u"Товарные позиции"
+    SIZES = (
+        {'code': 'resized', 'wxh': '800x400', 'resize': 'crop'},
+    )
+
+    detail_cat = models.ForeignKey(CatalogItems, on_delete=models.SET_NULL, null=True, verbose_name = u"Подкатегория")
+    detail_title = models.CharField(
+        max_length=200, help_text="Наименование товара", verbose_name = u"Наименование")
+    detail_img = ImageThumbsField(upload_to="main/img/detail_img/", help_text="Изображения товара", default='', sizes=SIZES, verbose_name = u"Изображение")
+    detail_description = models.TextField(default="", verbose_name = u"Описание")
+    detail_cost = models.FloatField(default=0, verbose_name = u"Цена")
+
+    slug = models.SlugField(default="slug")
+
+    def save(self, *args, **kwargs):					# Переопределяем метод сохранения модели
+        # Создаем временную переменную и заносим в нее наш текст
+        try:
+            temp = translit(self.detail_title, reversed=True)
+        except:
+            temp = translit(self.detail_title, 'hy', reversed=True)
+        # Заменяем в полученной строке пробелы на тире
+        self.slug = slugify(temp)
+        # Вызываем базовый метод сохранения с измененными нами данными
+        super(Detail_Items, self).save(*args, **kwargs)
+    
+    def __str__(self):
+        return self.detail_title
 
 class SliderA(models.Model):
 

@@ -42,8 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'django_bootstrap_breadcrumbs',
+    'view_breadcrumbs',
+    
     'main',
     'django_thumbs',
+    'detail_catalog',
 ]
 
 MIDDLEWARE = [

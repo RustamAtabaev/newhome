@@ -59,7 +59,8 @@ class HmenuItemsAdmin(admin.ModelAdmin):
 
 @admin.register(CatalogItems)
 class CatalogItemsAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('item_title', 'catalog_same', 'slug',)
+    exclude = ('slug',)
 
 @admin.register(SliderA)
 class SliderAAdmin(admin.ModelAdmin):
@@ -80,9 +81,16 @@ class RecomendAdmin(admin.ModelAdmin):
 @admin.register(Catalog)
 class CatalogOptions(SortableAdminMixin, admin.ModelAdmin):
     list_display = ('catalog_title', 'catalog_icon', 'catalog_order',)
+    exclude = ('slug',)
 
 
+#--------------------------------------------------------------
 
+
+@admin.register(Detail_Items)
+class DetailItemsAdmin(admin.ModelAdmin):
+    list_display = ('detail_title', 'detail_cat', 'detail_description', 'detail_description', 'detail_cost', 'slug')
+    exclude = ('slug',)
 
 
 

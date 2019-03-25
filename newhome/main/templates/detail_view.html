@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load menu %}
+{% load static %}
+
+<style>
+    .backgroung-detail {
+        background-color: #dadada;
+        border: 1px solid dadada;
+        border-radius: 10px;
+        padding: 20px;
+
+    }
+</style>
+{% block catalog %}
+<div class="col-12 backgroung-detail">
+
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{item_fields.detail_img.url}}" class="card-img img-fluid" alt="{{item_fields.detail_title}}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><a
+                            href="#">{{item_fields.detail_title}}</a></h5>
+                    <p class="card-text">{{item_fields.detail_description}}</p>
+                    <p class="card-text">Цена: {{item_fields.detail_cost}} руб.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

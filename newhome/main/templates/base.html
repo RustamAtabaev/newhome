@@ -126,7 +126,7 @@
                             {% database_filter i as res %}
                             <div class="dropdown-menu {% if not res %} d-none {% endif %}">
                                 {% for k in res %}
-                                <a href="#" class="dropdown-item">{{ k.item_title }}</a>
+                                <a href="{% url 'category' i.slug k.slug %}" class="dropdown-item">{{ k.item_title }}</a>
                                 {% endfor %}
                             </div>
                         </div>
