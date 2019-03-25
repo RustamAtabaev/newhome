@@ -18,6 +18,9 @@ mypy_extensions = "==0.4.1"
 django-grappelli = "*"
 django-admin-sortable2 = "*"
 django-thumbs-v2 = "*"
+transliterate = "*"
+django-view-breadcrumbs = "*"
+django-ckeditor = "*"
 
 [requires]
 python_version = "3.6"
