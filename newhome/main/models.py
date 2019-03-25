@@ -2,7 +2,7 @@ from django.db import models
 from django_thumbs.fields import ImageThumbsField
 from transliterate import translit, get_available_language_codes, detect_language
 from django.template.defaultfilters import slugify
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 
@@ -165,7 +165,7 @@ class Detail_Items(models.Model):
     detail_title = models.CharField(
         max_length=200, help_text="Наименование товара", verbose_name = u"Наименование")
     detail_img = ImageThumbsField(upload_to="main/img/detail_img/", help_text="Изображения товара", default='', sizes=SIZES, verbose_name = u"Изображение")
-    detail_description = models.TextField(default="", verbose_name = u"Описание")
+    detail_description = RichTextField(default="", verbose_name = u"Описание")
     detail_cost = models.FloatField(default=0, verbose_name = u"Цена")
 
     slug = models.SlugField(default="slug")

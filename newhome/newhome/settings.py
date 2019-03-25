@@ -42,12 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'ckeditor', 
+    'ckeditor_uploader',
+
     'django_bootstrap_breadcrumbs',
     'view_breadcrumbs',
     
     'main',
     'django_thumbs',
-    'detail_catalog',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +138,5 @@ MEDIA_ROOT = BASE_DIR+'/media/'
 
 GRAPPELLI_ADMIN_TITLE = "Страница администрирования" # Работает только для английского языка
 GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+
+CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
