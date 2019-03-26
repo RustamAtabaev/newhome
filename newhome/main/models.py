@@ -261,7 +261,7 @@ class Recomend(models.Model):
         return self.recomend_title
 
 
-# Ниже идут блоки детального обзора каталога каталога
+# Ниже идут блоки детального обзора каталога
 
 class DitailMenu(models.Model):
     class Meta:
