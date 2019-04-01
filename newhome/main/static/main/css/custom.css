@@ -1,383 +1,333 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Arimo|Raleway");
 @font-face {
-  font-family: 'Adventure';
-  src: url(../fonts/Adventure.ttf)  format("truetype"),
-  local('Adventure');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Adventure';
+    src: url(../fonts/Adventure.ttf) format("truetype"), local('Adventure');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
-  background-color: #f2f2f2;
-  font-family: "Arimo";
-  font-weight: 300;
-  font-size: 100%;
-  min-width: 350px;
-  color: #555;
-  -webkit-font-smoothing: antialiased;
-  -webkit-overflow-scrolling: touch;
+    background-color: #f2f2f2;
+    font-family: "Arimo";
+    font-weight: 300;
+    min-width: 350px;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
 }
+
 @media(min-width: 0px) {
-  body, dropdown {
-    font-size: 1.2em;
-    text-align: center;
-  }
-  .main-logo {
-    max-width: 100%;
-  }
-
-  .myfont {
-    font-size: 0.8em;
-  }
-
-
+    body, dropdown {
+        font-size: 18px;
+        text-align: center;
+    }
+    .main-logo {
+        width: 250px;
+    }
+    .myfont {
+        font-size: 14px;
+    }
 }
+
 @media(min-width: 576px) {
-  body {
-    font-size: 3vw;
-    text-align: center;
-  }
-  .main-logo {
-    max-width: 60%;
-  }
-  .myfont {
-    font-size: 3vw;
-  }
+    body {
+        font-size: 20px;
+        text-align: center;
+    }
+    .main-logo {
+        width: 300px;
+    }
+    .myfont {
+        font-size: 16px;
+    }
 }
 
 @media(min-width: 768px) {
-  body {
-    font-size: 1.2vw;
-    text-align: left;
-  }
-  .main-logo {
-    max-width: 100%;
-  }
-  .myfont {
-    font-size: 1.2vw;
-  }
+    body {
+        font-size: 12px;
+        text-align: left;
+    }
+    .container {
+        max-width: 990px;
+    }
+    .main-logo {
+        width: 200px;
+    }
+    .myfont {
+        font-size: 12px;
+    }
+    .search {
+        font-size: 14px;
+    }
+    .form-control {
+        max-width: 100px;
+    }
+    .search-button {
+        font-size: 12px;
+    }
+    .slider {
+        height: 346px;
+    }
+    .slider-add {
+        height: 150px;
+    }
+
+    .conteiner-catalog {
+        width: 780px;
+    }
 }
 
 @media(min-width: 992px) {
-  body {
-    font-size:1.2vw;
-  }
-  .main-logo {
-    max-width: 100%;
-  }
-  .myfont {
-    font-size: 1.2vw;
-  }
+    body {
+        font-size: 14px;
+    }
+    .container {
+        max-width: 1180px;
+    }
+    .main-logo {
+        width: 280px;
+    }
+    .myfont {
+        font-size: 14px;
+    }
+    .form-control {
+        max-width: 140px;
+    }
+    .conteiner-catalog {
+        width: 1000px;
+    }
 }
+
 @media(min-width: 1200px) {
-  body {
-    font-size: 1.2vw;
-  }
-  .main-logo {
-    width: 100%;
-  }
-  .myfont {
-    font-size: 1.2vw;
-  }
+    body {
+        font-size: 16px;
+    }
+    .main-logo {
+        width: 350px;
+    }
+    .myfont {
+        font-size: 16px;
+    }
+    .form-control {
+        max-width: 200px;
+    }
+    .conteiner-catalog {
+        width: 1200px;
+    }
 }
 
 /* Вспомогательные классы */
 
 p {
-  margin: 0;
+    margin: 0;
 }
 
 .row {
-  margin-right: 0;
-  margin-left: 0;
+    margin-right: 0;
+    margin-left: 0;
 }
 
 a {
-  color: #333;
+    color: #333;
 }
 
 .strong {
-  font-weight: 900;
-  font-size: 100%;
+    font-weight: 900;
+    font-size: 100%;
 }
 
 .centered {
-  text-align: center;
-  margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
 .no-margin {
-  margin: 0;
+    margin: 0;
 }
 
 .no-padding {
-  padding: 0;
-
+    padding: 0;
 }
-
-
 
 /* Кастомные классы */
 
 .shop {
-  font-weight: 900;
+    font-weight: 900;
 }
 
 .slogan {
-  font-family: 'Adventure';
-  font-weight: 800;
-  font-size: 1.5em;
-  text-align: center;
-  color: rgb(255, 24, 24);
+    font-family: 'Adventure';
+    font-weight: 800;
+    font-size: 1.5em;
+    text-align: center;
+    color: rgb(255, 24, 24);
 }
 
 .header-blocks {
-  display: inline-block;
+    display: inline-block;
 }
 
 .header-main {
-  padding-top: 20px;
-  padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .icon-color {
-  color: orange;
+    color: orange;
 }
 
 .phone-number {
-  font-weight: 900;
-  color: black;
-}
-
-.quality-first {
-  display: inline-block;
-  margin-bottom: 5px;
-}
-
-.quality-1 {
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  background-image: url(../img/quality.png);
-  background-position: 0px 0px;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.quality-1:hover {
-  background-position: 0px -35px;
-}
-
-.quality-2 {
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  background-image: url(../img/quality.png);
-  background-position: 30px 0px;
-  margin-right: 5px;
-}
-
-.quality-2:hover {
-  background-position: 30px -35px;
-}
-
-.quality-3 {
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  background-image: url(../img/quality.png);
-  background-position: 65px 0px;
-  margin-right: 5px;
-}
-
-.quality-3:hover {
-  background-position: 65px -35px;
-}
-
-.quality-4 {
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  background-image: url(../img/quality.png);
-  background-position: 100px 0px;
-  margin-right: 5px;
-}
-
-.quality-4:hover {
-  background-position: 100px -35px;
-}
-
-.quality-5 {
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  background-image: url(../img/quality.png);
-  background-position: 135px 0px;
-  margin-right: 5px;
-}
-
-.quality-5:hover {
-  background-position: 135px -35px;
-}
-
-.quality-text {
-  font-size: 120%;
-  font-weight: 900;
-  color: #333;
-  font-family: "Arimo";
-}
-
-.quality-capture {
-  font-weight: 900;
-  color: #333;
-  font-family: "Arimo";
-  letter-spacing: 0.5em;
+    font-weight: 900;
+    color: black;
 }
 
 .top-menu-item {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /* Настройка блока каталога и акций */
+
 .catalog {
-  background: url(../img/building.jpg);
-  min-height: 550px;
-  width: 100%;
-  background-size: 100%;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding-top: 40px;
-  padding-bottom: 40px;
+    background: url(../img/building.jpg);
+    background-size: 100%;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 /* Блок меню */
+
 .catalog-menu {
-  background-color: #d4d4d4;
+    background-color: #d4d4d4;
 }
 
 .catalog-item-first {
-  background-color: #fbff00;
-  font-weight: 900;
+    background-color: #fbff00;
+    font-weight: 900;
 }
 
 .catalog-item {
-  border-top: 1px solid #333;
-  font-weight: 600;
+    border-top: 1px solid #333;
+    font-weight: 600;
 }
 
 .catalog-item:hover {
-  background-color: rgba(252, 255, 97, 0.603);
+    background-color: rgba(252, 255, 97, 0.603);
 }
 
-.slider-wrapper {
-  max-height: 28em;
+/* Блок слайдера */
+
+.slider-add {
+    overflow: hidden;
 }
 
-.slider-height {
-  height: 100%;
-}
 
 /* Блок Новостей */
+
 .news-header {
-  margin-bottom: 20px;
-  border-bottom: 4px solid orange;
-  font-weight: 900;
+    margin-bottom: 20px;
+    border-bottom: 4px solid orange;
+    font-weight: 900;
 }
 
 #news {
-  padding-top: 20px;
-  padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .news-image-size {
-  height: 200px;
+    height: 200px;
 }
 
-
 /* Настройка блока рекламы */
+
 .info {
-  min-height: 300px;
-  width: 100%;
-  background-size: 100%;
-  background-attachment: fixed;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  font-size: inherit;
+    min-height: 300px;
+    width: 100%;
+    background-size: 100%;
+    background-attachment: fixed;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: inherit;
 }
 
 .img-size {
-  width: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .card-description {
-  height: 10em;
-  overflow: hidden;
+    height: 10em;
+    overflow: hidden;
 }
 
 /* Настройка блока картинок */
+
 .foto {
-  border-top: 4px groove #f5f5f5;
-  border-bottom: 4px groove #f5f5f5;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #f5f5f5;
+    border-top: 4px groove #f5f5f5;
+    border-bottom: 4px groove #f5f5f5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f5f5f5;
 }
 
 .zamer {
-  margin-top: 10px;
-  margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .map {
-  border-top: 4px groove #f5f5f5;
-  border-bottom: 4px groove #f5f5f5;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #f5f5f5;
+    border-top: 4px groove #f5f5f5;
+    border-bottom: 4px groove #f5f5f5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f5f5f5;
 }
 
 .map-text {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .aditional {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .description {
-  font-size: 2vw;
-  margin: 5px;
+    font-size: 2vw;
+    margin: 5px;
 }
 
 .img-add-size {
-  min-height: 50px;
+    min-height: 50px;
 }
 
 .img-add-container {
-  font-size: 1.8vw;
+    font-size: 1.8vw;
 }
 
 /* Настройка блока подвала */
+
 .footer {
-  border-top: 4px double grey;
-  min-height: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+    border-top: 4px double grey;
+    min-height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .footer-item-first {
-  text-align: center;
+    text-align: center;
 }
 
 /*# sourceMappingURL=custom.css.map */

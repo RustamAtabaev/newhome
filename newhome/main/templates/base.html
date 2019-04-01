@@ -101,8 +101,8 @@
                 {% endfor %}
             </ul>
             <form class="form-inline">
-                <input class="form-control mr-sm-2" type="text" placeholder="Поиск">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+                <input class="form-control mr-sm-2 search" type="text" placeholder="Поиск">
+                <button class="btn btn-outline-success my-2 my-sm-0 search-button" type="submit">Поиск</button>
             </form>
         </div>
     </nav>
@@ -110,11 +110,11 @@
 
     <!-- Блок категорий и слайдера -->
     <div class="catalog">
-        <div class="container-fluid">
+        <div class="container conteiner-catalog">
             <div class="row">
                 {% block catalog %}
                 <!-- Блок категорий -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <nav class="nav flex-column catalog-menu">
                         <a class="nav-link catalog-item-first active" href="#">Каталог продукции:</a>
                         {% for i in catalog_category|dictsort:"catalog_order" %}
@@ -126,7 +126,8 @@
                             {% database_filter i as res %}
                             <div class="dropdown-menu {% if not res %} d-none {% endif %}">
                                 {% for k in res %}
-                                <a href="{% url 'category' i.slug k.slug %}" class="dropdown-item">{{ k.item_title }}</a>
+                                <a href="{% url 'category' i.slug k.slug %}"
+                                    class="dropdown-item">{{ k.item_title }}</a>
                                 {% endfor %}
                             </div>
                         </div>
@@ -134,38 +135,49 @@
                     </nav>
                 </div>
                 <!-- Блок слайдера -->
-                <div class="col-md-9">
-                    <div id="carouselExampleIndicators" class="carousel slide slider-height" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            {% for i in sliderA %}
-                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ i.id }}"
-                                class="{% if forloop.first %}active{% endif %}"></li>
-                            {% endfor %}
-                        </ol>
-                        <div class="carousel-inner slider-wrapper">
-                            {% for i in sliderA %}
-                            <div class="carousel-item {% if forloop.first %}active{% endif %} slider">
-                                <img class="d-block w-100 img-size" src="{{ i.slider_img_path.url|cut_ext }}"
-                                    alt="{{ i.slider_title }}">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h3>{{ i.slider_title }}</h3>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="carouselExampleIndicators" class="carousel slide slider" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    {% for i in sliderA %}
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ i.id }}"
+                                        class="{% if forloop.first %}active{% endif %}"></li>
+                                    {% endfor %}
+                                </ol>
+                                <div class="carousel-inner slider-wrapper">
+                                    {% for i in sliderA %}
+                                    <div class="carousel-item {% if forloop.first %}active{% endif %} slider">
+                                        <img class="d-block w-100 img-size" src="{{ i.slider_img_path.url|cut_ext }}"
+                                            alt="{{ i.slider_title }}">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h3>{{ i.slider_title }}</h3>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
                                 </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                    data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                    data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
-                            {% endfor %}
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                            data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                            data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                        <div class="col-6 slider-add"><img src="{% static 'main/img/building.jpg' %}" alt=""></div>
+                        <div class="col-6 slider-add"><img src="{% static 'main/img/building.jpg' %}" alt=""></div>
+                        <div class="col-6 slider-add"><img src="{% static 'main/img/building.jpg' %}" alt=""></div>
+                        <div class="col-6 slider-add"><img src="{% static 'main/img/building.jpg' %}" alt=""></div>
+
                     </div>
+
+
+                    {% endblock %}
                 </div>
-                {% endblock %}
             </div>
         </div>
     </div>

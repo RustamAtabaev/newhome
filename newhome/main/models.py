@@ -187,7 +187,7 @@ class Detail_Items(models.Model):
 class SliderA(models.Model):
 
     SIZES = (
-        {'code': 'resized', 'wxh': '800x400', 'resize': 'crop'},
+        {'code': 'resized', 'wxh': '700x340', 'resize': 'crop'},
     )
 
     class Meta:

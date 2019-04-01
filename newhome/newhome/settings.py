@@ -34,20 +34,22 @@ INSTALLED_APPS = [
     'grappelli.dashboard',
     'grappelli',
     'adminsortable2',
-    
+
+
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'ckeditor', 
+
+    'ckeditor',
     'ckeditor_uploader',
 
     'django_bootstrap_breadcrumbs',
     'view_breadcrumbs',
-    
+
     'main',
     'django_thumbs',
 ]
@@ -91,6 +93,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+    },
+    'test': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db',
+        'USER': 'admin',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '1234',
     }
 }
 
@@ -136,7 +147,8 @@ STATIC_ROOT = BASE_DIR+'/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR+'/media/'
 
-GRAPPELLI_ADMIN_TITLE = "Страница администрирования" # Работает только для английского языка
+# Работает только для английского языка
+GRAPPELLI_ADMIN_TITLE = "Страница администрирования"
 GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 
 CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
