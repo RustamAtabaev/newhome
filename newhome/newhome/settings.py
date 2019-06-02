@@ -25,7 +25,7 @@ SECRET_KEY = '@gb7ip8+7p&wvbhb230m*-xhe3fuhv4e744us=6ip4z%!3u-_+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS: list = ['94.103.85.154', 'newdom.ml', '127.0.0.1']
+ALLOWED_HOSTS: list = ['*']
 
 
 # Application definition
